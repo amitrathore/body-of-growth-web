@@ -3,17 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Body of Growth | AI-Powered Growth Execution</title>
+  <meta name="description" content="Body of Growth turns your Head of Growth into a fully operational AI-powered growth engine across acquisition, conversion, retention, expansion, and optimization.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { font-family: 'Sora', sans-serif; }
+    html { scroll-behavior: smooth; background: #0A0915; }
+    * { font-family: 'Sora', sans-serif; box-sizing: border-box; }
+    ::selection { background: rgba(0,217,126,0.28); color: #fff; }
     .green-glow { box-shadow: 0 0 0 1px rgba(0,217,126,0.35), 0 8px 32px rgba(0,217,126,0.25); }
     .green-glow-sm { box-shadow: 0 0 0 1px rgba(0,217,126,0.20), 0 4px 16px rgba(0,217,126,0.15); }
-    .card-glow:hover { box-shadow: 0 0 0 1px rgba(0,217,126,0.25), 0 8px 32px rgba(0,217,126,0.12); transition: box-shadow 0.3s ease; }
+    .card-glow { transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; }
+    .card-glow:hover { box-shadow: 0 0 0 1px rgba(0,217,126,0.25), 0 8px 32px rgba(0,217,126,0.12); transform: translateY(-2px); }
     .green-text-glow { text-shadow: 0 0 40px rgba(0,217,126,0.5); }
-    .hero-bg { background-image: url('https://t3.ftcdn.net/jpg/06/03/18/70/360_F_603187024_voRL50Ad72G40uLTamGwfzl81srdqMhA.jpg background-size: cover; background-position: center top; }
-    .gradient-overlay { background: linear-gradient(180deg, rgba(10,9,21,0.55) 0%, rgba(10,9,21,0.75) 60%, #0A0915 100%); }
+    .hero-bg {
+      background-image:
+        linear-gradient(90deg, rgba(10,9,21,0.94) 0%, rgba(10,9,21,0.80) 52%, rgba(10,9,21,0.60) 100%),
+        url('https://t3.ftcdn.net/jpg/06/03/18/70/360_F_603187024_voRL50Ad72G40uLTamGwfzl81srdqMhA.jpg');
+      background-size: cover;
+      background-position: center top;
+    }
+    .gradient-overlay { background: linear-gradient(180deg, rgba(10,9,21,0.30) 0%, rgba(10,9,21,0.68) 68%, #0A0915 100%); }
     .section-divider { background: linear-gradient(90deg, transparent, rgba(0,217,126,0.4), transparent); height: 1px; }
     .function-num { font-variant-numeric: tabular-nums; }
     .bar-fill { transition: width 0.3s ease; }
@@ -38,15 +49,55 @@
     .mesh-bg-3 { background: radial-gradient(ellipse 70% 50% at 20% 50%, rgba(0,217,126,0.06) 0%, transparent 60%); }
     .connector-line { background: linear-gradient(90deg, transparent, rgba(0,217,126,0.4), transparent); height: 1px; }
     .tilt-line { width: 1px; background: linear-gradient(180deg, transparent, rgba(0,217,126,0.3), transparent); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -8px; height: 1px; background: #00D97E; transform: scaleX(0); transform-origin: center; transition: transform 0.2s ease; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .short-label { display: none; }
+    .section-wrap { max-width: 1240px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
+    .hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) 390px; align-items: center; gap: 3.5rem; }
+    .hero-preview { position: relative !important; right: auto !important; top: auto !important; transform: none !important; width: 100% !important; }
+
+    @media (max-width: 1180px) {
+      .desktop-nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-preview { width: min(100%, 520px) !important; }
+      .hero-copy { max-width: 720px; }
+      .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; row-gap: 2rem; }
+      .metrics-grid > div { border-left: 0 !important; border-right: 0 !important; }
+      .functions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      .two-col { grid-template-columns: 1fr !important; gap: 3rem !important; }
+      .steps-grid, .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    }
+
+    @media (max-width: 760px) {
+      .section-wrap { padding-left: 1rem; padding-right: 1rem; }
+      .mobile-hide { display: none !important; }
+      .hero-title { font-size: 44px !important; line-height: 1.05 !important; letter-spacing: -0.03em !important; }
+      .section-title { font-size: 34px !important; line-height: 1.12 !important; }
+      .final-title { font-size: 40px !important; line-height: 1.05 !important; }
+      .hero-ctas, .trust-row, .final-benefits { align-items: stretch !important; flex-direction: column !important; }
+      .trust-row > .w-px { display: none !important; }
+      .hero-ctas a, .final-cta-button { justify-content: center; width: 100%; }
+      .metrics-grid, .functions-grid, .steps-grid, .testimonials-grid, .audience-grid, .footer-grid, .service-grid { grid-template-columns: 1fr !important; }
+      .footer-bottom { align-items: flex-start !important; flex-direction: column !important; gap: 1rem; }
+      .footer-links { flex-wrap: wrap; gap: 1rem !important; }
+      section { padding-top: 4.5rem !important; padding-bottom: 4.5rem !important; }
+    }
+
+    @media (max-width: 520px) {
+      .full-label { display: none; }
+      .short-label { display: inline; }
+      .nav-cta { padding-left: 0.85rem !important; padding-right: 0.85rem !important; }
+    }
   </style>
 </head>
-<body class="w-[1440px] bg-[#0A0915] text-white overflow-x-hidden">
+<body class="w-full bg-[#0A0915] text-white overflow-x-hidden">
 
   <!-- NAVBAR -->
-  <nav data-design-id="nav-primary-a1b2c3" class="fixed top-0 left-0 w-[1440px] z-50" style="background: rgba(10,9,21,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-    <div class="max-w-[1240px] mx-auto flex items-center justify-between h-[68px] px-8">
+  <nav data-design-id="nav-primary-a1b2c3" class="fixed top-0 left-0 w-full z-50" style="background: rgba(10,9,21,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div class="section-wrap flex items-center justify-between h-[68px]">
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-3">
+      <a href="#top" class="flex items-center gap-3" aria-label="Body of Growth home">
         <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: rgba(0,217,126,0.15); border: 1px solid rgba(0,217,126,0.35);">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <circle cx="9" cy="9" r="3" fill="#00D97E"/>
@@ -57,32 +108,34 @@
         <span class="text-white font-bold text-[17px] tracking-[-0.02em]">Body of Growth</span>
       </a>
       <!-- Nav links -->
-      <div class="flex items-center gap-8">
-        <a href="#" class="text-[#9590A8] hover:text-white text-[13px] font-medium transition-colors">Functions</a>
-        <a href="#" class="text-[#9590A8] hover:text-white text-[13px] font-medium transition-colors">How It Works</a>
-        <a href="#" class="text-[#9590A8] hover:text-white text-[13px] font-medium transition-colors">Results</a>
-        <a href="#" class="text-[#9590A8] hover:text-white text-[13px] font-medium transition-colors">About</a>
+      <div class="desktop-nav-links flex items-center gap-8">
+        <a href="#functions" class="nav-link text-[#9590A8] hover:text-white text-[13px] font-medium transition-colors">Functions</a>
+        <a href="#how-it-works" class="nav-link text-[#9590A8] hover:text-white text-[13px] font-medium transition-colors">How It Works</a>
+        <a href="#results" class="nav-link text-[#9590A8] hover:text-white text-[13px] font-medium transition-colors">Results</a>
+        <a href="#audience" class="nav-link text-[#9590A8] hover:text-white text-[13px] font-medium transition-colors">About</a>
       </div>
       <!-- CTA -->
       <div class="flex items-center gap-3">
-        <a href="#" class="text-[#E2DFEC] text-[13px] font-medium px-4 py-2 ghost-btn rounded-[10px]">Sign In</a>
-        <a href="#" class="cta-btn text-[13px] px-5 py-2.5 rounded-[10px] inline-flex items-center gap-2">
+        <a href="#contact" class="mobile-hide text-[#E2DFEC] text-[13px] font-medium px-4 py-2 ghost-btn rounded-[10px]">Sign In</a>
+        <a href="#contact" class="nav-cta cta-btn text-[13px] px-5 py-2.5 rounded-[10px] inline-flex items-center gap-2">
           <i class="fa-solid fa-calendar-check text-[12px]"></i>
-          Schedule Free Consultation
+          <span class="full-label">Schedule Free Consultation</span>
+          <span class="short-label">Consult</span>
         </a>
       </div>
     </div>
   </nav>
 
   <!-- HERO SECTION -->
-  <header data-design-id="hero-header-b2c3d4" class="relative hero-bg min-h-[900px] flex flex-col justify-center" style="padding-top: 68px;">
+  <header id="top" data-design-id="hero-header-b2c3d4" class="relative hero-bg min-h-[900px] flex flex-col justify-center" style="padding-top: 68px;">
     <div class="gradient-overlay absolute inset-0"></div>
     <!-- Subtle green glow at top -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px]" style="background: radial-gradient(ellipse 100% 80% at 50% 0%, rgba(0,217,126,0.12) 0%, transparent 70%);"></div>
     
-    <div class="relative z-10 max-w-[1240px] mx-auto px-8 pt-20 pb-24">
+    <div class="relative z-10 section-wrap hero-inner pt-20 pb-24">
+      <div>
       <!-- Eyebrow -->
-      <div class="flex items-center gap-3 mb-8">
+      <div class="flex flex-wrap items-center gap-3 mb-8">
         <div class="flex items-center gap-2 px-3 py-1.5 rounded-full tag-green text-[11px] font-semibold uppercase tracking-[0.06em]">
           <div class="dot-green"></div>
           AI-Powered Growth Agency
@@ -94,30 +147,30 @@
       </div>
       
       <!-- Headline -->
-      <h1 class="text-[72px] font-bold leading-[1.0] tracking-[-0.04em] max-w-[840px] mb-6">
+      <h1 class="hero-copy hero-title text-[72px] font-bold leading-[1.0] tracking-[-0.04em] max-w-[680px] mb-6">
         The operating body for your
         <span class="text-[#00D97E] green-text-glow"> Head of Growth.</span>
       </h1>
       
       <!-- Subtitle -->
-      <p class="text-[20px] text-[#9590A8] leading-[1.6] max-w-[620px] mb-10 font-light">
+      <p class="hero-copy text-[20px] text-[#9590A8] leading-[1.6] max-w-[600px] mb-10 font-light">
         Body of Growth is the AI-powered execution system that turns a Head of Growth into a fully operational growth engine — across marketing, sales, and retention.
       </p>
       
       <!-- CTAs -->
-      <div class="flex items-center gap-4 mb-16">
-        <a href="#" class="cta-btn text-[15px] px-7 py-4 rounded-[12px] inline-flex items-center gap-2.5 green-glow">
+      <div class="hero-ctas flex items-center gap-4 mb-16">
+        <a href="#contact" class="cta-btn text-[15px] px-7 py-4 rounded-[12px] inline-flex items-center gap-2.5 green-glow">
           <i class="fa-solid fa-calendar-check"></i>
           Schedule Free Consultation
         </a>
-        <a href="#" class="ghost-btn text-[15px] px-7 py-4 rounded-[12px] inline-flex items-center gap-2.5">
+        <a href="#how-it-works" class="ghost-btn text-[15px] px-7 py-4 rounded-[12px] inline-flex items-center gap-2.5">
           See How It Works
           <i class="fa-solid fa-arrow-right text-[12px]"></i>
         </a>
       </div>
       
       <!-- Trust indicators -->
-      <div class="flex items-center gap-8">
+      <div class="trust-row flex items-center gap-8">
         <div class="flex items-center gap-2">
           <div class="flex -space-x-2">
             <div class="w-8 h-8 rounded-full border-2 border-[#0A0915] flex items-center justify-center text-[10px] font-bold" style="background: linear-gradient(135deg, #00D97E, #00AA62);">JM</div>
@@ -142,9 +195,10 @@
           <span class="text-[13px] text-[#9590A8]"><span class="text-white font-semibold">3</span> spots remaining this quarter</span>
         </div>
       </div>
+      </div>
 
       <!-- Floating system preview card -->
-      <div class="absolute right-8 top-1/2 -translate-y-1/2 w-[400px]" style="top: 55%; transform: translateY(-50%);">
+      <div class="hero-preview w-[390px]">
         <div class="surface rounded-[20px] p-6" style="box-shadow: 0 0 0 1px rgba(0,217,126,0.20), 0 24px 64px rgba(0,0,0,0.6);">
           <div class="flex items-center justify-between mb-5">
             <div>
@@ -209,7 +263,7 @@
               </div>
             </div>
           </div>
-          <div class="mt-4 pt-4 border-t border-white/8 flex items-center justify-between">
+          <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between">
             <div class="text-[12px] text-[#9590A8]">Revenue this month</div>
             <div class="text-[15px] font-bold text-[#00D97E]">$284,500 <span class="text-[12px] text-[#5BC489]">+23%</span></div>
           </div>
@@ -219,9 +273,9 @@
   </header>
 
   <!-- METRICS / TRUST BAR -->
-  <section data-design-id="metrics-bar-c3d4e5" class="border-y border-white/8" style="background: #0E0D1A;">
-    <div class="max-w-[1240px] mx-auto px-8 py-10">
-      <div class="grid grid-cols-4 gap-0 divide-x divide-white/8">
+  <section data-design-id="metrics-bar-c3d4e5" class="border-y border-white/[0.08]" style="background: #0E0D1A;">
+    <div class="section-wrap py-10">
+      <div class="metrics-grid grid grid-cols-4 gap-0 divide-x divide-white/[0.08]">
         <div class="text-center px-10">
           <div class="text-[44px] font-bold tracking-[-0.04em] text-white leading-none mb-2">2.3<span class="text-[#00D97E]">x</span></div>
           <div class="text-[13px] text-[#9590A8]">Average revenue growth</div>
@@ -247,14 +301,14 @@
   </section>
 
   <!-- THE SYSTEM OVERVIEW -->
-  <section data-design-id="system-overview-d4e5f6" class="py-28 mesh-bg">
-    <div class="max-w-[1240px] mx-auto px-8">
+  <section id="functions" data-design-id="system-overview-d4e5f6" class="py-28 mesh-bg scroll-mt-20">
+    <div class="section-wrap">
       <div class="text-center mb-16">
         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full tag-dim text-[11px] font-semibold uppercase tracking-[0.06em] mb-6">
           <i class="fa-solid fa-sitemap text-[10px]"></i>
           The System
         </div>
-        <h2 class="text-[48px] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
+        <h2 class="section-title text-[48px] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
           All your growth functions,
           <span class="text-[#00D97E]"> working as one system.</span>
         </h2>
@@ -264,7 +318,7 @@
       </div>
 
       <!-- 5 function overview cards -->
-      <div class="grid grid-cols-5 gap-4 mb-12">
+      <div class="functions-grid grid grid-cols-5 gap-4 mb-12">
         <!-- Acquire -->
         <div class="surface rounded-[14px] p-5 card-glow cursor-pointer" style="border-color: rgba(0,217,126,0.20);">
           <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(0,217,126,0.12); border: 1px solid rgba(0,217,126,0.25);">
@@ -324,9 +378,9 @@
   </section>
 
   <!-- ==================== FUNCTION 1: ACQUIRE ==================== -->
-  <section data-design-id="acquire-section-e5f6g7" class="py-28 mesh-bg-2">
-    <div class="max-w-[1240px] mx-auto px-8">
-      <div class="grid grid-cols-2 gap-20 items-center">
+  <section id="acquire" data-design-id="acquire-section-e5f6g7" class="py-28 mesh-bg-2 scroll-mt-20">
+    <div class="section-wrap">
+      <div class="two-col grid grid-cols-2 gap-20 items-center">
         <!-- Left: content -->
         <div>
           <div class="flex items-center gap-3 mb-6">
@@ -343,7 +397,7 @@
             We run your paid acquisition, outbound sequences, SEO strategy, and content engine — all connected to a single attribution system so you know exactly what's working.
           </p>
           <!-- Service list -->
-          <div class="grid grid-cols-2 gap-3 mb-8">
+          <div class="service-grid grid grid-cols-2 gap-3 mb-8">
             <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
               <i class="fa-solid fa-rectangle-ad text-[#00D97E] text-[13px] mt-0.5"></i>
               <div>
@@ -373,7 +427,7 @@
               </div>
             </div>
           </div>
-          <a href="#" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
+          <a href="#contact" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
             <i class="fa-solid fa-calendar-check text-[12px]"></i>
             Schedule Free Consultation
           </a>
@@ -449,9 +503,9 @@
   </section>
 
   <!-- ==================== FUNCTION 2: CONVERT ==================== -->
-  <section data-design-id="convert-section-f6g7h8" class="py-28" style="background: #0E0D1A;">
-    <div class="max-w-[1240px] mx-auto px-8">
-      <div class="grid grid-cols-2 gap-20 items-center">
+  <section id="convert" data-design-id="convert-section-f6g7h8" class="py-28 scroll-mt-20" style="background: #0E0D1A;">
+    <div class="section-wrap">
+      <div class="two-col grid grid-cols-2 gap-20 items-center">
         <!-- Left: mock dashboard -->
         <div class="surface rounded-[20px] p-6" style="box-shadow: 0 0 0 1px rgba(107,166,255,0.15), 0 20px 60px rgba(0,0,0,0.5);">
           <div class="flex items-center justify-between mb-5">
@@ -527,7 +581,7 @@
           <p class="text-[16px] text-[#9590A8] leading-[1.7] mb-8">
             We design and optimize every step of your conversion journey — from landing pages to checkout flows — using AI-driven personalization that adapts in real time.
           </p>
-          <div class="grid grid-cols-2 gap-3 mb-8">
+          <div class="service-grid grid grid-cols-2 gap-3 mb-8">
             <div class="flex items-start gap-2.5 surface rounded-[10px] px-4 py-3">
               <i class="fa-solid fa-filter text-[#6BA6FF] text-[13px] mt-0.5"></i>
               <div>
@@ -550,14 +604,14 @@
               </div>
             </div>
             <div class="flex items-start gap-2.5 surface rounded-[10px] px-4 py-3">
-              <i class="fa-solid fa-page text-[#6BA6FF] text-[13px] mt-0.5"></i>
+              <i class="fa-solid fa-file-lines text-[#6BA6FF] text-[13px] mt-0.5"></i>
               <div>
                 <div class="text-[13px] font-semibold mb-0.5">Landing Pages</div>
                 <div class="text-[11px] text-[#9590A8]">Built and optimized for you</div>
               </div>
             </div>
           </div>
-          <a href="#" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
+          <a href="#contact" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
             <i class="fa-solid fa-calendar-check text-[12px]"></i>
             Schedule Free Consultation
           </a>
@@ -567,9 +621,9 @@
   </section>
 
   <!-- ==================== FUNCTION 3: RETAIN ==================== -->
-  <section data-design-id="retain-section-g7h8i9" class="py-28 mesh-bg-3">
-    <div class="max-w-[1240px] mx-auto px-8">
-      <div class="grid grid-cols-2 gap-20 items-center">
+  <section id="retain" data-design-id="retain-section-g7h8i9" class="py-28 mesh-bg-3 scroll-mt-20">
+    <div class="section-wrap">
+      <div class="two-col grid grid-cols-2 gap-20 items-center">
         <!-- Left: content -->
         <div>
           <div class="flex items-center gap-3 mb-6">
@@ -585,7 +639,7 @@
           <p class="text-[16px] text-[#9590A8] leading-[1.7] mb-8">
             Reducing churn by 10% can be worth more than doubling acquisition. We build the lifecycle journeys, CRM automations, and loyalty programs that make customers stay.
           </p>
-          <div class="grid grid-cols-2 gap-3 mb-8">
+          <div class="service-grid grid grid-cols-2 gap-3 mb-8">
             <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
               <i class="fa-solid fa-route text-[#FFC861] text-[13px] mt-0.5"></i>
               <div>
@@ -615,7 +669,7 @@
               </div>
             </div>
           </div>
-          <a href="#" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
+          <a href="#contact" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
             <i class="fa-solid fa-calendar-check text-[12px]"></i>
             Schedule Free Consultation
           </a>
@@ -691,9 +745,9 @@
   </section>
 
   <!-- ==================== FUNCTION 4: EXPAND ==================== -->
-  <section data-design-id="expand-section-h8i9j0" class="py-28" style="background: #0E0D1A;">
-    <div class="max-w-[1240px] mx-auto px-8">
-      <div class="grid grid-cols-2 gap-20 items-center">
+  <section id="expand" data-design-id="expand-section-h8i9j0" class="py-28 scroll-mt-20" style="background: #0E0D1A;">
+    <div class="section-wrap">
+      <div class="two-col grid grid-cols-2 gap-20 items-center">
         <!-- Left: mock expansion dashboard -->
         <div class="surface rounded-[20px] p-6" style="box-shadow: 0 0 0 1px rgba(91,196,137,0.15), 0 20px 60px rgba(0,0,0,0.5);">
           <div class="flex items-center justify-between mb-5">
@@ -755,7 +809,7 @@
           <p class="text-[16px] text-[#9590A8] leading-[1.7] mb-8">
             The most cost-efficient revenue is already in your base. We design the upsell sequences, cross-sell automations, and referral programs that unlock compounding NRR.
           </p>
-          <div class="grid grid-cols-2 gap-3 mb-8">
+          <div class="service-grid grid grid-cols-2 gap-3 mb-8">
             <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
               <i class="fa-solid fa-arrow-up-right-dots text-[#5BC489] text-[13px] mt-0.5"></i>
               <div>
@@ -785,7 +839,7 @@
               </div>
             </div>
           </div>
-          <a href="#" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
+          <a href="#contact" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
             <i class="fa-solid fa-calendar-check text-[12px]"></i>
             Schedule Free Consultation
           </a>
@@ -795,9 +849,9 @@
   </section>
 
   <!-- ==================== FUNCTION 5: ANALYZE & OPTIMIZE ==================== -->
-  <section data-design-id="analyze-section-i9j0k1" class="py-28 mesh-bg">
-    <div class="max-w-[1240px] mx-auto px-8">
-      <div class="grid grid-cols-2 gap-20 items-center">
+  <section id="analyze" data-design-id="analyze-section-i9j0k1" class="py-28 mesh-bg scroll-mt-20">
+    <div class="section-wrap">
+      <div class="two-col grid grid-cols-2 gap-20 items-center">
         <!-- Left: content -->
         <div>
           <div class="flex items-center gap-3 mb-6">
@@ -813,7 +867,7 @@
           <p class="text-[16px] text-[#9590A8] leading-[1.7] mb-8">
             Every channel, every experiment, every decision — measured and connected. Our analytics layer feeds insights back across all five functions so the whole system improves over time.
           </p>
-          <div class="grid grid-cols-2 gap-3 mb-8">
+          <div class="service-grid grid grid-cols-2 gap-3 mb-8">
             <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
               <i class="fa-solid fa-vials text-[#AC6AFF] text-[13px] mt-0.5"></i>
               <div>
@@ -843,7 +897,7 @@
               </div>
             </div>
           </div>
-          <a href="#" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
+          <a href="#contact" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
             <i class="fa-solid fa-calendar-check text-[12px]"></i>
             Schedule Free Consultation
           </a>
@@ -933,14 +987,14 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section data-design-id="how-it-works-j0k1l2" class="py-28 border-t border-white/8" style="background: #0E0D1A;">
-    <div class="max-w-[1240px] mx-auto px-8">
+  <section id="how-it-works" data-design-id="how-it-works-j0k1l2" class="py-28 border-t border-white/[0.08] scroll-mt-20" style="background: #0E0D1A;">
+    <div class="section-wrap">
       <div class="text-center mb-16">
         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full tag-dim text-[11px] font-semibold uppercase tracking-[0.06em] mb-6">
           <i class="fa-solid fa-play text-[10px]"></i>
           How It Works
         </div>
-        <h2 class="text-[48px] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
+        <h2 class="section-title text-[48px] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
           From consultation to
           <span class="text-[#00D97E]"> compounding growth.</span>
         </h2>
@@ -949,7 +1003,7 @@
         </p>
       </div>
       <!-- Steps -->
-      <div class="grid grid-cols-4 gap-6">
+      <div class="steps-grid grid grid-cols-4 gap-6">
         <article data-design-id="step-card-1-k1l2m3" class="surface rounded-[16px] p-6">
           <div class="flex items-center gap-3 mb-5">
             <div class="w-10 h-10 rounded-xl flex items-center justify-center text-[#00D97E] font-bold text-[16px]" style="background: rgba(0,217,126,0.12); border: 1px solid rgba(0,217,126,0.25);">01</div>
@@ -990,19 +1044,19 @@
   </section>
 
   <!-- TESTIMONIALS / SOCIAL PROOF -->
-  <section data-design-id="testimonials-section-o5p6q7" class="py-28 mesh-bg">
-    <div class="max-w-[1240px] mx-auto px-8">
+  <section id="results" data-design-id="testimonials-section-o5p6q7" class="py-28 mesh-bg scroll-mt-20">
+    <div class="section-wrap">
       <div class="text-center mb-16">
         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full tag-dim text-[11px] font-semibold uppercase tracking-[0.06em] mb-6">
           <i class="fa-solid fa-quote-left text-[10px]"></i>
           Client Results
         </div>
-        <h2 class="text-[48px] font-bold tracking-[-0.03em] leading-[1.1]">
+        <h2 class="section-title text-[48px] font-bold tracking-[-0.03em] leading-[1.1]">
           Heads of Growth and founders
           <span class="text-[#00D97E]"> trust the system.</span>
         </h2>
       </div>
-      <div class="grid grid-cols-3 gap-6">
+      <div class="testimonials-grid grid grid-cols-3 gap-6">
         <article data-design-id="testimonial-1-p6q7r8" class="surface rounded-[16px] p-7">
           <div class="flex gap-0.5 mb-5">
             <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
@@ -1071,13 +1125,13 @@
   </section>
 
   <!-- WHO IT'S FOR -->
-  <section data-design-id="audience-section-s9t0u1" class="py-24" style="background: #0E0D1A; border-top: 1px solid rgba(255,255,255,0.08);">
-    <div class="max-w-[1240px] mx-auto px-8">
+  <section id="audience" data-design-id="audience-section-s9t0u1" class="py-24 scroll-mt-20" style="background: #0E0D1A; border-top: 1px solid rgba(255,255,255,0.08);">
+    <div class="section-wrap">
       <div class="text-center mb-14">
-        <h2 class="text-[40px] font-bold tracking-[-0.03em] leading-[1.1] mb-4">Built for the people driving growth.</h2>
+        <h2 class="section-title text-[40px] font-bold tracking-[-0.03em] leading-[1.1] mb-4">Built for the people driving growth.</h2>
         <p class="text-[16px] text-[#9590A8] max-w-[480px] mx-auto">Two types of leaders find Body of Growth indispensable.</p>
       </div>
-      <div class="grid grid-cols-2 gap-8">
+      <div class="audience-grid grid grid-cols-2 gap-8">
         <!-- Head of Growth card -->
         <div class="surface rounded-[20px] p-8">
           <div class="flex items-center gap-4 mb-6">
@@ -1137,14 +1191,14 @@
   </section>
 
   <!-- FINAL CTA SECTION -->
-  <section data-design-id="final-cta-section-t0u1v2" class="py-28 relative overflow-hidden">
+  <section id="contact" data-design-id="final-cta-section-t0u1v2" class="py-28 relative overflow-hidden scroll-mt-20">
     <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(0,217,126,0.09) 0%, transparent 70%);"></div>
     <div class="relative z-10 max-w-[800px] mx-auto px-8 text-center">
       <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full tag-green text-[11px] font-semibold uppercase tracking-[0.06em] mb-8">
         <div class="dot-green"></div>
         Limited spots available — Q3 2026
       </div>
-      <h2 class="text-[60px] font-bold tracking-[-0.04em] leading-[1.0] mb-6">
+      <h2 class="final-title text-[60px] font-bold tracking-[-0.04em] leading-[1.0] mb-6">
         Ready to run growth
         <span class="text-[#00D97E]"> as a system?</span>
       </h2>
@@ -1152,13 +1206,13 @@
         Book a free 45-minute strategy session. We'll audit your current growth infrastructure and show you exactly where the gaps are — no pitch, no fluff.
       </p>
       <div class="flex items-center justify-center gap-4 mb-10">
-        <a href="#" class="cta-btn text-[16px] px-8 py-4.5 rounded-[12px] inline-flex items-center gap-3 green-glow" style="padding-top: 18px; padding-bottom: 18px;">
+        <a href="mailto:hello@bodyofgrowth.com?subject=Free%20Growth%20Consultation" class="final-cta-button cta-btn text-[16px] px-8 rounded-[12px] inline-flex items-center gap-3 green-glow" style="padding-top: 18px; padding-bottom: 18px;">
           <i class="fa-solid fa-calendar-check"></i>
           Schedule Free Consultation
           <i class="fa-solid fa-arrow-right text-[13px]"></i>
         </a>
       </div>
-      <div class="flex items-center justify-center gap-8">
+      <div class="final-benefits flex items-center justify-center gap-8">
         <div class="flex items-center gap-2 text-[13px] text-[#9590A8]">
           <i class="fa-solid fa-check-circle text-[#00D97E] text-[12px]"></i>
           No commitment required
@@ -1176,12 +1230,12 @@
   </section>
 
   <!-- FOOTER -->
-  <footer data-design-id="footer-main-u1v2w3" class="border-t border-white/8" style="background: #080714;">
-    <div class="max-w-[1240px] mx-auto px-8 py-16">
-      <div class="grid grid-cols-5 gap-10 mb-14">
+  <footer data-design-id="footer-main-u1v2w3" class="border-t border-white/[0.08]" style="background: #080714;">
+    <div class="section-wrap py-16">
+      <div class="footer-grid grid grid-cols-5 gap-10 mb-14">
         <!-- Brand column -->
         <div class="col-span-2">
-          <a href="#" class="flex items-center gap-3 mb-5">
+          <a href="#top" class="flex items-center gap-3 mb-5" aria-label="Body of Growth home">
             <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: rgba(0,217,126,0.15); border: 1px solid rgba(0,217,126,0.35);">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <circle cx="9" cy="9" r="3" fill="#00D97E"/>
@@ -1192,10 +1246,10 @@
           </a>
           <p class="text-[14px] text-[#9590A8] leading-[1.7] max-w-[280px] mb-6">The AI-powered execution system that turns a Head of Growth into a fully operational growth engine.</p>
           <div class="flex items-center gap-3">
-            <a href="#" class="w-8 h-8 rounded-lg flex items-center justify-center surface hover:border-white/25 transition-colors">
+            <a href="https://www.linkedin.com/" class="w-8 h-8 rounded-lg flex items-center justify-center surface hover:border-white/25 transition-colors" aria-label="LinkedIn">
               <i class="fa-brands fa-linkedin text-[#9590A8] text-[12px]"></i>
             </a>
-            <a href="#" class="w-8 h-8 rounded-lg flex items-center justify-center surface hover:border-white/25 transition-colors">
+            <a href="https://x.com/" class="w-8 h-8 rounded-lg flex items-center justify-center surface hover:border-white/25 transition-colors" aria-label="X">
               <i class="fa-brands fa-x-twitter text-[#9590A8] text-[12px]"></i>
             </a>
           </div>
@@ -1204,38 +1258,38 @@
         <div>
           <div class="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5A5567] mb-4">Functions</div>
           <div class="space-y-2.5">
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Acquire</a>
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Convert</a>
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Retain</a>
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Expand</a>
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Analyze &amp; Optimize</a>
+            <a href="#acquire" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Acquire</a>
+            <a href="#convert" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Convert</a>
+            <a href="#retain" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Retain</a>
+            <a href="#expand" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Expand</a>
+            <a href="#analyze" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Analyze &amp; Optimize</a>
           </div>
         </div>
         <div>
           <div class="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5A5567] mb-4">Company</div>
           <div class="space-y-2.5">
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">About</a>
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Case Studies</a>
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Blog</a>
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Careers</a>
+            <a href="#audience" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">About</a>
+            <a href="#results" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Case Studies</a>
+            <a href="#how-it-works" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Process</a>
+            <a href="#contact" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Contact</a>
           </div>
         </div>
         <div>
           <div class="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5A5567] mb-4">Get Started</div>
           <div class="space-y-2.5">
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Schedule Consultation</a>
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Growth Audit</a>
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Pricing</a>
-            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Contact</a>
+            <a href="#contact" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Schedule Consultation</a>
+            <a href="#contact" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Growth Audit</a>
+            <a href="#contact" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Pricing</a>
+            <a href="mailto:hello@bodyofgrowth.com" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Contact</a>
           </div>
         </div>
       </div>
       <!-- Bottom bar -->
-      <div class="border-t border-white/8 pt-8 flex items-center justify-between">
+      <div class="footer-bottom border-t border-white/[0.08] pt-8 flex items-center justify-between">
         <div class="text-[12px] text-[#5A5567]">© 2026 Body of Growth. All rights reserved.</div>
-        <div class="flex items-center gap-6">
-          <a href="#" class="text-[12px] text-[#5A5567] hover:text-[#9590A8] transition-colors">Privacy Policy</a>
-          <a href="#" class="text-[12px] text-[#5A5567] hover:text-[#9590A8] transition-colors">Terms of Service</a>
+        <div class="footer-links flex items-center gap-6">
+          <a href="#contact" class="text-[12px] text-[#5A5567] hover:text-[#9590A8] transition-colors">Privacy Policy</a>
+          <a href="#contact" class="text-[12px] text-[#5A5567] hover:text-[#9590A8] transition-colors">Terms of Service</a>
           <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full tag-green text-[10px] font-semibold">
             <div class="dot-green"></div>
             All systems operational
