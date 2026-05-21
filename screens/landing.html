@@ -1,0 +1,1249 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Sora', sans-serif; }
+    .green-glow { box-shadow: 0 0 0 1px rgba(0,217,126,0.35), 0 8px 32px rgba(0,217,126,0.25); }
+    .green-glow-sm { box-shadow: 0 0 0 1px rgba(0,217,126,0.20), 0 4px 16px rgba(0,217,126,0.15); }
+    .card-glow:hover { box-shadow: 0 0 0 1px rgba(0,217,126,0.25), 0 8px 32px rgba(0,217,126,0.12); transition: box-shadow 0.3s ease; }
+    .green-text-glow { text-shadow: 0 0 40px rgba(0,217,126,0.5); }
+    .hero-bg { background-image: url('https://t3.ftcdn.net/jpg/06/03/18/70/360_F_603187024_voRL50Ad72G40uLTamGwfzl81srdqMhA.jpg background-size: cover; background-position: center top; }
+    .gradient-overlay { background: linear-gradient(180deg, rgba(10,9,21,0.55) 0%, rgba(10,9,21,0.75) 60%, #0A0915 100%); }
+    .section-divider { background: linear-gradient(90deg, transparent, rgba(0,217,126,0.4), transparent); height: 1px; }
+    .function-num { font-variant-numeric: tabular-nums; }
+    .bar-fill { transition: width 0.3s ease; }
+    .tag-green { background: rgba(0,217,126,0.12); color: #00D97E; border: 1px solid rgba(0,217,126,0.25); }
+    .tag-dim { background: rgba(255,255,255,0.06); color: #9590A8; border: 1px solid rgba(255,255,255,0.10); }
+    .surface { background: #15131D; border: 1px solid rgba(255,255,255,0.10); }
+    .surface-2 { background: #1B1A23; border: 1px solid rgba(255,255,255,0.08); }
+    .cta-btn { background: #00D97E; color: #0A0915; font-weight: 700; transition: background 0.2s, transform 0.15s; }
+    .cta-btn:hover { background: #00F08A; transform: translateY(-1px); }
+    .ghost-btn { border: 1px solid rgba(255,255,255,0.18); color: #E2DFEC; transition: border-color 0.2s, background 0.2s; }
+    .ghost-btn:hover { border-color: rgba(0,217,126,0.45); background: rgba(0,217,126,0.06); color: #00D97E; }
+    .dot-green { width: 8px; height: 8px; background: #00D97E; border-radius: 50%; box-shadow: 0 0 6px rgba(0,217,126,0.7); }
+    .dot-amber { width: 8px; height: 8px; background: #FFC861; border-radius: 50%; }
+    .dot-red { width: 8px; height: 8px; background: #FF6B7E; border-radius: 50%; }
+    .progress-track { background: rgba(255,255,255,0.08); border-radius: 9999px; height: 6px; }
+    .progress-fill-green { background: #00D97E; border-radius: 9999px; height: 6px; }
+    .progress-fill-blue { background: #6BA6FF; border-radius: 9999px; height: 6px; }
+    .progress-fill-amber { background: #FFC861; border-radius: 9999px; height: 6px; }
+    .gradient-border { background: linear-gradient(135deg, rgba(0,217,126,0.3), rgba(172,106,255,0.15), rgba(0,217,126,0.1)); border: 1px solid transparent; background-clip: padding-box; }
+    .mesh-bg { background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,217,126,0.08) 0%, transparent 70%); }
+    .mesh-bg-2 { background: radial-gradient(ellipse 70% 50% at 80% 50%, rgba(0,217,126,0.06) 0%, transparent 60%); }
+    .mesh-bg-3 { background: radial-gradient(ellipse 70% 50% at 20% 50%, rgba(0,217,126,0.06) 0%, transparent 60%); }
+    .connector-line { background: linear-gradient(90deg, transparent, rgba(0,217,126,0.4), transparent); height: 1px; }
+    .tilt-line { width: 1px; background: linear-gradient(180deg, transparent, rgba(0,217,126,0.3), transparent); }
+  </style>
+</head>
+<body class="w-[1440px] bg-[#0A0915] text-white overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <nav data-design-id="nav-primary-a1b2c3" class="fixed top-0 left-0 w-[1440px] z-50" style="background: rgba(10,9,21,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div class="max-w-[1240px] mx-auto flex items-center justify-between h-[68px] px-8">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: rgba(0,217,126,0.15); border: 1px solid rgba(0,217,126,0.35);">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="3" fill="#00D97E"/>
+            <path d="M9 2 C9 2 12 4 14 7 C16 10 15 14 12 15 C10 16 8 16 6 15 C3 14 2 10 4 7 C6 4 9 2 9 2Z" stroke="#00D97E" stroke-width="1.2" fill="none" opacity="0.5"/>
+            <path d="M9 1 L9 5 M14 5 L11 7.5 M14 13 L11 10.5 M9 17 L9 13 M4 13 L7 10.5 M4 5 L7 7.5" stroke="#00D97E" stroke-width="1" opacity="0.4"/>
+          </svg>
+        </div>
+        <span class="text-white font-bold text-[17px] tracking-[-0.02em]">Body of Growth</span>
+      </a>
+      <!-- Nav links -->
+      <div class="flex items-center gap-8">
+        <a href="#" class="text-[#9590A8] hover:text-white text-[13px] font-medium transition-colors">Functions</a>
+        <a href="#" class="text-[#9590A8] hover:text-white text-[13px] font-medium transition-colors">How It Works</a>
+        <a href="#" class="text-[#9590A8] hover:text-white text-[13px] font-medium transition-colors">Results</a>
+        <a href="#" class="text-[#9590A8] hover:text-white text-[13px] font-medium transition-colors">About</a>
+      </div>
+      <!-- CTA -->
+      <div class="flex items-center gap-3">
+        <a href="#" class="text-[#E2DFEC] text-[13px] font-medium px-4 py-2 ghost-btn rounded-[10px]">Sign In</a>
+        <a href="#" class="cta-btn text-[13px] px-5 py-2.5 rounded-[10px] inline-flex items-center gap-2">
+          <i class="fa-solid fa-calendar-check text-[12px]"></i>
+          Schedule Free Consultation
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header data-design-id="hero-header-b2c3d4" class="relative hero-bg min-h-[900px] flex flex-col justify-center" style="padding-top: 68px;">
+    <div class="gradient-overlay absolute inset-0"></div>
+    <!-- Subtle green glow at top -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px]" style="background: radial-gradient(ellipse 100% 80% at 50% 0%, rgba(0,217,126,0.12) 0%, transparent 70%);"></div>
+    
+    <div class="relative z-10 max-w-[1240px] mx-auto px-8 pt-20 pb-24">
+      <!-- Eyebrow -->
+      <div class="flex items-center gap-3 mb-8">
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full tag-green text-[11px] font-semibold uppercase tracking-[0.06em]">
+          <div class="dot-green"></div>
+          AI-Powered Growth Agency
+        </div>
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full tag-dim text-[11px] font-medium">
+          <i class="fa-solid fa-bolt text-[10px] text-[#FFC861]"></i>
+          Now onboarding Q3 2026 cohort
+        </div>
+      </div>
+      
+      <!-- Headline -->
+      <h1 class="text-[72px] font-bold leading-[1.0] tracking-[-0.04em] max-w-[840px] mb-6">
+        The operating body for your
+        <span class="text-[#00D97E] green-text-glow"> Head of Growth.</span>
+      </h1>
+      
+      <!-- Subtitle -->
+      <p class="text-[20px] text-[#9590A8] leading-[1.6] max-w-[620px] mb-10 font-light">
+        Body of Growth is the AI-powered execution system that turns a Head of Growth into a fully operational growth engine — across marketing, sales, and retention.
+      </p>
+      
+      <!-- CTAs -->
+      <div class="flex items-center gap-4 mb-16">
+        <a href="#" class="cta-btn text-[15px] px-7 py-4 rounded-[12px] inline-flex items-center gap-2.5 green-glow">
+          <i class="fa-solid fa-calendar-check"></i>
+          Schedule Free Consultation
+        </a>
+        <a href="#" class="ghost-btn text-[15px] px-7 py-4 rounded-[12px] inline-flex items-center gap-2.5">
+          See How It Works
+          <i class="fa-solid fa-arrow-right text-[12px]"></i>
+        </a>
+      </div>
+      
+      <!-- Trust indicators -->
+      <div class="flex items-center gap-8">
+        <div class="flex items-center gap-2">
+          <div class="flex -space-x-2">
+            <div class="w-8 h-8 rounded-full border-2 border-[#0A0915] flex items-center justify-center text-[10px] font-bold" style="background: linear-gradient(135deg, #00D97E, #00AA62);">JM</div>
+            <div class="w-8 h-8 rounded-full border-2 border-[#0A0915] flex items-center justify-center text-[10px] font-bold" style="background: linear-gradient(135deg, #6BA6FF, #4580D8);">SR</div>
+            <div class="w-8 h-8 rounded-full border-2 border-[#0A0915] flex items-center justify-center text-[10px] font-bold" style="background: linear-gradient(135deg, #FFC861, #D89A30);">KL</div>
+            <div class="w-8 h-8 rounded-full border-2 border-[#0A0915] flex items-center justify-center text-[10px] font-bold" style="background: linear-gradient(135deg, #FF6B7E, #D84455);">AP</div>
+          </div>
+          <span class="text-[13px] text-[#9590A8]">Trusted by <span class="text-white font-semibold">50+</span> growth teams</span>
+        </div>
+        <div class="w-px h-5 bg-white/10"></div>
+        <div class="flex items-center gap-1.5">
+          <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+          <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+          <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+          <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+          <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+          <span class="text-[13px] text-[#9590A8] ml-1"><span class="text-white font-semibold">4.9/5</span> from 38 reviews</span>
+        </div>
+        <div class="w-px h-5 bg-white/10"></div>
+        <div class="flex items-center gap-1.5">
+          <div class="dot-green"></div>
+          <span class="text-[13px] text-[#9590A8]"><span class="text-white font-semibold">3</span> spots remaining this quarter</span>
+        </div>
+      </div>
+
+      <!-- Floating system preview card -->
+      <div class="absolute right-8 top-1/2 -translate-y-1/2 w-[400px]" style="top: 55%; transform: translateY(-50%);">
+        <div class="surface rounded-[20px] p-6" style="box-shadow: 0 0 0 1px rgba(0,217,126,0.20), 0 24px 64px rgba(0,0,0,0.6);">
+          <div class="flex items-center justify-between mb-5">
+            <div>
+              <div class="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#9590A8] mb-1">Growth Engine — Live</div>
+              <div class="text-[16px] font-bold">All systems operating</div>
+            </div>
+            <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full tag-green text-[10px] font-semibold">
+              <div class="dot-green"></div>
+              Active
+            </div>
+          </div>
+          <!-- 5 function rows -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between surface-2 rounded-[10px] px-3.5 py-2.5">
+              <div class="flex items-center gap-2.5">
+                <div class="w-6 h-6 rounded-md flex items-center justify-center" style="background: rgba(0,217,126,0.15);"><i class="fa-solid fa-bullseye text-[#00D97E] text-[10px]"></i></div>
+                <span class="text-[12px] font-medium">Acquire</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="text-[11px] text-[#9590A8]">+847 leads/mo</div>
+                <div class="dot-green"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between surface-2 rounded-[10px] px-3.5 py-2.5">
+              <div class="flex items-center gap-2.5">
+                <div class="w-6 h-6 rounded-md flex items-center justify-center" style="background: rgba(107,166,255,0.15);"><i class="fa-solid fa-funnel-dollar text-[#6BA6FF] text-[10px]"></i></div>
+                <span class="text-[12px] font-medium">Convert</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="text-[11px] text-[#9590A8]">4.2% CVR ↑ 1.8x</div>
+                <div class="dot-green"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between surface-2 rounded-[10px] px-3.5 py-2.5">
+              <div class="flex items-center gap-2.5">
+                <div class="w-6 h-6 rounded-md flex items-center justify-center" style="background: rgba(255,200,97,0.15);"><i class="fa-solid fa-heart text-[#FFC861] text-[10px]"></i></div>
+                <span class="text-[12px] font-medium">Retain</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="text-[11px] text-[#9590A8]">Churn ↓ 34%</div>
+                <div class="dot-green"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between surface-2 rounded-[10px] px-3.5 py-2.5">
+              <div class="flex items-center gap-2.5">
+                <div class="w-6 h-6 rounded-md flex items-center justify-center" style="background: rgba(91,196,137,0.15);"><i class="fa-solid fa-arrow-trend-up text-[#5BC489] text-[10px]"></i></div>
+                <span class="text-[12px] font-medium">Expand</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="text-[11px] text-[#9590A8]">NRR +126%</div>
+                <div class="dot-green"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between surface-2 rounded-[10px] px-3.5 py-2.5">
+              <div class="flex items-center gap-2.5">
+                <div class="w-6 h-6 rounded-md flex items-center justify-center" style="background: rgba(172,106,255,0.15);"><i class="fa-solid fa-chart-mixed text-[#AC6AFF] text-[10px]"></i></div>
+                <span class="text-[12px] font-medium">Analyze &amp; Optimize</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="text-[11px] text-[#9590A8]">14 experiments live</div>
+                <div class="dot-green"></div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-white/8 flex items-center justify-between">
+            <div class="text-[12px] text-[#9590A8]">Revenue this month</div>
+            <div class="text-[15px] font-bold text-[#00D97E]">$284,500 <span class="text-[12px] text-[#5BC489]">+23%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- METRICS / TRUST BAR -->
+  <section data-design-id="metrics-bar-c3d4e5" class="border-y border-white/8" style="background: #0E0D1A;">
+    <div class="max-w-[1240px] mx-auto px-8 py-10">
+      <div class="grid grid-cols-4 gap-0 divide-x divide-white/8">
+        <div class="text-center px-10">
+          <div class="text-[44px] font-bold tracking-[-0.04em] text-white leading-none mb-2">2.3<span class="text-[#00D97E]">x</span></div>
+          <div class="text-[13px] text-[#9590A8]">Average revenue growth</div>
+          <div class="text-[11px] text-[#5A5567] mt-1">across 50+ clients</div>
+        </div>
+        <div class="text-center px-10">
+          <div class="text-[44px] font-bold tracking-[-0.04em] text-white leading-none mb-2">87<span class="text-[#00D97E]">%</span></div>
+          <div class="text-[13px] text-[#9590A8]">Faster time to execution</div>
+          <div class="text-[11px] text-[#5A5567] mt-1">vs. building in-house teams</div>
+        </div>
+        <div class="text-center px-10">
+          <div class="text-[44px] font-bold tracking-[-0.04em] text-white leading-none mb-2">$0</div>
+          <div class="text-[13px] text-[#9590A8]">Fixed overhead</div>
+          <div class="text-[11px] text-[#5A5567] mt-1">pay for what you use</div>
+        </div>
+        <div class="text-center px-10">
+          <div class="text-[44px] font-bold tracking-[-0.04em] text-white leading-none mb-2">5<span class="text-[#00D97E]">+</span></div>
+          <div class="text-[13px] text-[#9590A8]">Growth functions unified</div>
+          <div class="text-[11px] text-[#5A5567] mt-1">in one execution system</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SYSTEM OVERVIEW -->
+  <section data-design-id="system-overview-d4e5f6" class="py-28 mesh-bg">
+    <div class="max-w-[1240px] mx-auto px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full tag-dim text-[11px] font-semibold uppercase tracking-[0.06em] mb-6">
+          <i class="fa-solid fa-sitemap text-[10px]"></i>
+          The System
+        </div>
+        <h2 class="text-[48px] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
+          All your growth functions,
+          <span class="text-[#00D97E]"> working as one system.</span>
+        </h2>
+        <p class="text-[18px] text-[#9590A8] max-w-[560px] mx-auto leading-[1.6] font-light">
+          Most companies run growth in silos. Body of Growth connects every function into a single, AI-coordinated engine that compounds over time.
+        </p>
+      </div>
+
+      <!-- 5 function overview cards -->
+      <div class="grid grid-cols-5 gap-4 mb-12">
+        <!-- Acquire -->
+        <div class="surface rounded-[14px] p-5 card-glow cursor-pointer" style="border-color: rgba(0,217,126,0.20);">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(0,217,126,0.12); border: 1px solid rgba(0,217,126,0.25);">
+            <i class="fa-solid fa-bullseye text-[#00D97E] text-[16px]"></i>
+          </div>
+          <div class="text-[10px] font-semibold uppercase tracking-[0.06em] text-[#00D97E] mb-1">01</div>
+          <div class="text-[16px] font-bold mb-2">Acquire</div>
+          <p class="text-[12px] text-[#9590A8] leading-[1.6]">Ads, outbound, SEO, and content — all coordinated to fill the top of your funnel.</p>
+        </div>
+        <!-- Convert -->
+        <div class="surface rounded-[14px] p-5 card-glow cursor-pointer">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(107,166,255,0.12); border: 1px solid rgba(107,166,255,0.25);">
+            <i class="fa-solid fa-route text-[#6BA6FF] text-[16px]"></i>
+          </div>
+          <div class="text-[10px] font-semibold uppercase tracking-[0.06em] text-[#6BA6FF] mb-1">02</div>
+          <div class="text-[16px] font-bold mb-2">Convert</div>
+          <p class="text-[12px] text-[#9590A8] leading-[1.6]">Funnels, CRO, and personalization that turn visitors into paying customers.</p>
+        </div>
+        <!-- Retain -->
+        <div class="surface rounded-[14px] p-5 card-glow cursor-pointer">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(255,200,97,0.12); border: 1px solid rgba(255,200,97,0.25);">
+            <i class="fa-solid fa-heart-pulse text-[#FFC861] text-[16px]"></i>
+          </div>
+          <div class="text-[10px] font-semibold uppercase tracking-[0.06em] text-[#FFC861] mb-1">03</div>
+          <div class="text-[16px] font-bold mb-2">Retain</div>
+          <p class="text-[12px] text-[#9590A8] leading-[1.6]">Lifecycle, CRM, and loyalty systems that keep customers engaged and coming back.</p>
+        </div>
+        <!-- Expand -->
+        <div class="surface rounded-[14px] p-5 card-glow cursor-pointer">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(91,196,137,0.12); border: 1px solid rgba(91,196,137,0.25);">
+            <i class="fa-solid fa-arrow-trend-up text-[#5BC489] text-[16px]"></i>
+          </div>
+          <div class="text-[10px] font-semibold uppercase tracking-[0.06em] text-[#5BC489] mb-1">04</div>
+          <div class="text-[16px] font-bold mb-2">Expand</div>
+          <p class="text-[12px] text-[#9590A8] leading-[1.6]">Upsell, cross-sell, and referral programs that grow revenue from existing customers.</p>
+        </div>
+        <!-- Analyze -->
+        <div class="surface rounded-[14px] p-5 card-glow cursor-pointer">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(172,106,255,0.12); border: 1px solid rgba(172,106,255,0.25);">
+            <i class="fa-solid fa-flask text-[#AC6AFF] text-[16px]"></i>
+          </div>
+          <div class="text-[10px] font-semibold uppercase tracking-[0.06em] text-[#AC6AFF] mb-1">05</div>
+          <div class="text-[16px] font-bold mb-2">Analyze &amp; Optimize</div>
+          <p class="text-[12px] text-[#9590A8] leading-[1.6]">Experiments, attribution, and insights that make every function smarter over time.</p>
+        </div>
+      </div>
+
+      <!-- Connector visual -->
+      <div class="relative flex items-center justify-center mb-4">
+        <div class="connector-line w-full"></div>
+        <div class="absolute px-4 py-2 surface rounded-full text-[11px] text-[#9590A8] font-medium">
+          <i class="fa-solid fa-bolt text-[#00D97E] mr-1.5"></i>
+          AI-coordinated across all functions — continuously
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FUNCTION 1: ACQUIRE ==================== -->
+  <section data-design-id="acquire-section-e5f6g7" class="py-28 mesh-bg-2">
+    <div class="max-w-[1240px] mx-auto px-8">
+      <div class="grid grid-cols-2 gap-20 items-center">
+        <!-- Left: content -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: rgba(0,217,126,0.12); border: 1px solid rgba(0,217,126,0.25);">
+              <i class="fa-solid fa-bullseye text-[#00D97E]"></i>
+            </div>
+            <div class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#00D97E]">01 — Acquire</div>
+          </div>
+          <h2 class="text-[40px] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
+            Fill your pipeline with<br>
+            <span class="text-[#00D97E]">high-intent prospects.</span>
+          </h2>
+          <p class="text-[16px] text-[#9590A8] leading-[1.7] mb-8">
+            We run your paid acquisition, outbound sequences, SEO strategy, and content engine — all connected to a single attribution system so you know exactly what's working.
+          </p>
+          <!-- Service list -->
+          <div class="grid grid-cols-2 gap-3 mb-8">
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-rectangle-ad text-[#00D97E] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Paid Ads</div>
+                <div class="text-[11px] text-[#9590A8]">Meta, Google, LinkedIn</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-paper-plane text-[#00D97E] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Outbound</div>
+                <div class="text-[11px] text-[#9590A8]">AI sequences + SDR workflows</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-magnifying-glass text-[#00D97E] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">SEO</div>
+                <div class="text-[11px] text-[#9590A8]">Technical + content SEO</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-pen-nib text-[#00D97E] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Content Engine</div>
+                <div class="text-[11px] text-[#9590A8]">Blog, video, thought leadership</div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
+            <i class="fa-solid fa-calendar-check text-[12px]"></i>
+            Schedule Free Consultation
+          </a>
+        </div>
+        <!-- Right: mock dashboard -->
+        <div class="surface rounded-[20px] p-6" style="box-shadow: 0 0 0 1px rgba(0,217,126,0.15), 0 20px 60px rgba(0,0,0,0.5);">
+          <div class="flex items-center justify-between mb-5">
+            <div class="text-[14px] font-semibold">Campaign Performance</div>
+            <div class="text-[11px] px-2.5 py-1 rounded-full tag-green font-medium">Last 30 days</div>
+          </div>
+          <!-- Channel breakdown -->
+          <div class="space-y-3 mb-5">
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <div class="flex items-center gap-2"><i class="fa-brands fa-meta text-[#4580D8] text-[11px]"></i><span class="text-[12px]">Meta Ads</span></div>
+                <div class="flex items-center gap-4">
+                  <span class="text-[11px] text-[#9590A8]">$12,400 spend</span>
+                  <span class="text-[12px] font-semibold text-[#00D97E]">342 leads</span>
+                </div>
+              </div>
+              <div class="progress-track"><div class="progress-fill-green" style="width: 78%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <div class="flex items-center gap-2"><i class="fa-brands fa-google text-[#FF6B7E] text-[11px]"></i><span class="text-[12px]">Google Ads</span></div>
+                <div class="flex items-center gap-4">
+                  <span class="text-[11px] text-[#9590A8]">$8,700 spend</span>
+                  <span class="text-[12px] font-semibold text-[#00D97E]">218 leads</span>
+                </div>
+              </div>
+              <div class="progress-track"><div class="progress-fill-green" style="width: 55%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <div class="flex items-center gap-2"><i class="fa-brands fa-linkedin text-[#6BA6FF] text-[11px]"></i><span class="text-[12px]">LinkedIn</span></div>
+                <div class="flex items-center gap-4">
+                  <span class="text-[11px] text-[#9590A8]">$5,200 spend</span>
+                  <span class="text-[12px] font-semibold text-[#00D97E]">164 leads</span>
+                </div>
+              </div>
+              <div class="progress-track"><div class="progress-fill-blue" style="width: 42%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <div class="flex items-center gap-2"><i class="fa-solid fa-envelope text-[#FFC861] text-[11px]"></i><span class="text-[12px]">Outbound Email</span></div>
+                <div class="flex items-center gap-4">
+                  <span class="text-[11px] text-[#9590A8]">1,240 sent</span>
+                  <span class="text-[12px] font-semibold text-[#00D97E]">123 leads</span>
+                </div>
+              </div>
+              <div class="progress-track"><div class="progress-fill-amber" style="width: 32%;"></div></div>
+            </div>
+          </div>
+          <div class="section-divider mb-5"></div>
+          <!-- Summary row -->
+          <div class="grid grid-cols-3 gap-3">
+            <div class="surface-2 rounded-[10px] p-3 text-center">
+              <div class="text-[20px] font-bold text-white">847</div>
+              <div class="text-[10px] text-[#9590A8] mt-0.5">Total Leads</div>
+            </div>
+            <div class="surface-2 rounded-[10px] p-3 text-center">
+              <div class="text-[20px] font-bold text-[#00D97E]">$30.90</div>
+              <div class="text-[10px] text-[#9590A8] mt-0.5">Avg. CPL</div>
+            </div>
+            <div class="surface-2 rounded-[10px] p-3 text-center">
+              <div class="text-[20px] font-bold text-white">4.7x</div>
+              <div class="text-[10px] text-[#9590A8] mt-0.5">Blended ROAS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FUNCTION 2: CONVERT ==================== -->
+  <section data-design-id="convert-section-f6g7h8" class="py-28" style="background: #0E0D1A;">
+    <div class="max-w-[1240px] mx-auto px-8">
+      <div class="grid grid-cols-2 gap-20 items-center">
+        <!-- Left: mock dashboard -->
+        <div class="surface rounded-[20px] p-6" style="box-shadow: 0 0 0 1px rgba(107,166,255,0.15), 0 20px 60px rgba(0,0,0,0.5);">
+          <div class="flex items-center justify-between mb-5">
+            <div class="text-[14px] font-semibold">Funnel Analysis</div>
+            <div class="text-[11px] px-2.5 py-1 rounded-full font-medium" style="background: rgba(107,166,255,0.12); color: #6BA6FF; border: 1px solid rgba(107,166,255,0.25);">Live</div>
+          </div>
+          <!-- Funnel steps -->
+          <div class="space-y-2 mb-5">
+            <div class="surface-2 rounded-[10px] p-3">
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="text-[12px] font-medium">Landing Page Visit</span>
+                <span class="text-[12px] font-bold">12,840</span>
+              </div>
+              <div class="progress-track"><div style="width: 100%; height: 6px; background: #6BA6FF; border-radius: 9999px;"></div></div>
+            </div>
+            <div class="flex justify-center">
+              <div class="flex items-center gap-1 text-[10px] text-[#9590A8]">
+                <i class="fa-solid fa-arrow-down text-[9px]"></i>
+                <span class="font-medium text-white">68.2%</span> proceed
+              </div>
+            </div>
+            <div class="surface-2 rounded-[10px] p-3">
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="text-[12px] font-medium">Signup / Lead Form</span>
+                <span class="text-[12px] font-bold">8,757</span>
+              </div>
+              <div class="progress-track"><div style="width: 68%; height: 6px; background: #6BA6FF; border-radius: 9999px;"></div></div>
+            </div>
+            <div class="flex justify-center">
+              <div class="flex items-center gap-1 text-[10px] text-[#9590A8]">
+                <i class="fa-solid fa-arrow-down text-[9px]"></i>
+                <span class="font-medium text-white">31.4%</span> proceed
+              </div>
+            </div>
+            <div class="surface-2 rounded-[10px] p-3">
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="text-[12px] font-medium">Trial / Demo Request</span>
+                <span class="text-[12px] font-bold">2,750</span>
+              </div>
+              <div class="progress-track"><div style="width: 22%; height: 6px; background: #FFC861; border-radius: 9999px;"></div></div>
+            </div>
+            <div class="flex justify-center">
+              <div class="flex items-center gap-1 text-[10px] text-[#9590A8]">
+                <i class="fa-solid fa-arrow-down text-[9px]"></i>
+                <span class="font-medium text-[#00D97E]">19.5%</span> convert
+              </div>
+            </div>
+            <div class="rounded-[10px] p-3" style="background: rgba(0,217,126,0.08); border: 1px solid rgba(0,217,126,0.20);">
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="text-[12px] font-medium text-[#00D97E]">Paying Customer</span>
+                <span class="text-[12px] font-bold text-[#00D97E]">536</span>
+              </div>
+              <div class="progress-track"><div style="width: 4.2%; height: 6px; background: #00D97E; border-radius: 9999px;"></div></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between surface-2 rounded-[10px] px-4 py-3">
+            <div class="text-[12px] text-[#9590A8]">Overall CVR</div>
+            <div class="text-[16px] font-bold text-[#00D97E]">4.17% <span class="text-[11px] font-medium text-[#5BC489]">↑ 1.8x vs. baseline</span></div>
+          </div>
+        </div>
+        <!-- Right: content -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: rgba(107,166,255,0.12); border: 1px solid rgba(107,166,255,0.25);">
+              <i class="fa-solid fa-route text-[#6BA6FF]"></i>
+            </div>
+            <div class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#6BA6FF]">02 — Convert</div>
+          </div>
+          <h2 class="text-[40px] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
+            Turn more visitors into
+            <span class="text-[#6BA6FF]"> customers.</span>
+          </h2>
+          <p class="text-[16px] text-[#9590A8] leading-[1.7] mb-8">
+            We design and optimize every step of your conversion journey — from landing pages to checkout flows — using AI-driven personalization that adapts in real time.
+          </p>
+          <div class="grid grid-cols-2 gap-3 mb-8">
+            <div class="flex items-start gap-2.5 surface rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-filter text-[#6BA6FF] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Funnel Design</div>
+                <div class="text-[11px] text-[#9590A8]">End-to-end journey mapping</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-vial text-[#6BA6FF] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">CRO Testing</div>
+                <div class="text-[11px] text-[#9590A8]">A/B, multivariate, heatmaps</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-user-tag text-[#6BA6FF] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Personalization</div>
+                <div class="text-[11px] text-[#9590A8]">Dynamic content by segment</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-page text-[#6BA6FF] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Landing Pages</div>
+                <div class="text-[11px] text-[#9590A8]">Built and optimized for you</div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
+            <i class="fa-solid fa-calendar-check text-[12px]"></i>
+            Schedule Free Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FUNCTION 3: RETAIN ==================== -->
+  <section data-design-id="retain-section-g7h8i9" class="py-28 mesh-bg-3">
+    <div class="max-w-[1240px] mx-auto px-8">
+      <div class="grid grid-cols-2 gap-20 items-center">
+        <!-- Left: content -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: rgba(255,200,97,0.12); border: 1px solid rgba(255,200,97,0.25);">
+              <i class="fa-solid fa-heart-pulse text-[#FFC861]"></i>
+            </div>
+            <div class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#FFC861]">03 — Retain</div>
+          </div>
+          <h2 class="text-[40px] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
+            Keep every customer<br>
+            <span class="text-[#FFC861]"> longer and healthier.</span>
+          </h2>
+          <p class="text-[16px] text-[#9590A8] leading-[1.7] mb-8">
+            Reducing churn by 10% can be worth more than doubling acquisition. We build the lifecycle journeys, CRM automations, and loyalty programs that make customers stay.
+          </p>
+          <div class="grid grid-cols-2 gap-3 mb-8">
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-route text-[#FFC861] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Lifecycle Journeys</div>
+                <div class="text-[11px] text-[#9590A8]">Onboarding → activation → habit</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-database text-[#FFC861] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">CRM Automation</div>
+                <div class="text-[11px] text-[#9590A8]">Klaviyo, HubSpot, Salesforce</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-star text-[#FFC861] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Loyalty Programs</div>
+                <div class="text-[11px] text-[#9590A8]">Points, tiers, rewards design</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-person-running text-[#FFC861] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Churn Prevention</div>
+                <div class="text-[11px] text-[#9590A8]">Early warning + re-engagement</div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
+            <i class="fa-solid fa-calendar-check text-[12px]"></i>
+            Schedule Free Consultation
+          </a>
+        </div>
+        <!-- Right: mock CRM dashboard -->
+        <div class="surface rounded-[20px] p-6" style="box-shadow: 0 0 0 1px rgba(255,200,97,0.15), 0 20px 60px rgba(0,0,0,0.5);">
+          <div class="flex items-center justify-between mb-5">
+            <div class="text-[14px] font-semibold">Customer Health Overview</div>
+            <div class="text-[11px] px-2.5 py-1 rounded-full font-medium" style="background: rgba(255,200,97,0.12); color: #FFC861; border: 1px solid rgba(255,200,97,0.25);">All Segments</div>
+          </div>
+          <!-- Health segments -->
+          <div class="space-y-3 mb-5">
+            <div class="flex items-center justify-between surface-2 rounded-[10px] px-4 py-3">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: rgba(0,217,126,0.15);"><i class="fa-solid fa-fire text-[#00D97E] text-[11px]"></i></div>
+                <div>
+                  <div class="text-[12px] font-semibold">Champions</div>
+                  <div class="text-[10px] text-[#9590A8]">Frequent, high-value buyers</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-[14px] font-bold text-[#00D97E]">2,847</div>
+                <div class="text-[10px] text-[#9590A8]">+14% MoM</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between surface-2 rounded-[10px] px-4 py-3">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: rgba(107,166,255,0.15);"><i class="fa-solid fa-user-check text-[#6BA6FF] text-[11px]"></i></div>
+                <div>
+                  <div class="text-[12px] font-semibold">Loyal</div>
+                  <div class="text-[10px] text-[#9590A8]">Regular, engaged customers</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-[14px] font-bold">8,120</div>
+                <div class="text-[10px] text-[#9590A8]">+7% MoM</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between surface-2 rounded-[10px] px-4 py-3">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: rgba(255,200,97,0.15);"><i class="fa-solid fa-clock text-[#FFC861] text-[11px]"></i></div>
+                <div>
+                  <div class="text-[12px] font-semibold">At Risk</div>
+                  <div class="text-[10px] text-[#9590A8]">Declining engagement</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-[14px] font-bold text-[#FFC861]">1,340</div>
+                <div class="text-[10px] text-[#9590A8]">Re-engagement: active</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between surface-2 rounded-[10px] px-4 py-3">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: rgba(255,107,126,0.15);"><i class="fa-solid fa-triangle-exclamation text-[#FF6B7E] text-[11px]"></i></div>
+                <div>
+                  <div class="text-[12px] font-semibold">Churned (recoverable)</div>
+                  <div class="text-[10px] text-[#9590A8]">Win-back sequence: live</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-[14px] font-bold text-[#FF6B7E]">423</div>
+                <div class="text-[10px] text-[#9590A8]">18% win-back rate</div>
+              </div>
+            </div>
+          </div>
+          <div class="surface-2 rounded-[10px] px-4 py-3 flex items-center justify-between">
+            <div class="text-[12px] text-[#9590A8]">Avg. Customer LTV</div>
+            <div class="text-[16px] font-bold text-white">$1,840 <span class="text-[11px] font-medium text-[#00D97E]">↑ 34% YoY</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FUNCTION 4: EXPAND ==================== -->
+  <section data-design-id="expand-section-h8i9j0" class="py-28" style="background: #0E0D1A;">
+    <div class="max-w-[1240px] mx-auto px-8">
+      <div class="grid grid-cols-2 gap-20 items-center">
+        <!-- Left: mock expansion dashboard -->
+        <div class="surface rounded-[20px] p-6" style="box-shadow: 0 0 0 1px rgba(91,196,137,0.15), 0 20px 60px rgba(0,0,0,0.5);">
+          <div class="flex items-center justify-between mb-5">
+            <div class="text-[14px] font-semibold">Revenue Expansion</div>
+            <div class="text-[11px] px-2.5 py-1 rounded-full font-medium" style="background: rgba(91,196,137,0.12); color: #5BC489; border: 1px solid rgba(91,196,137,0.25);">Q2 2026</div>
+          </div>
+          <!-- NRR highlight -->
+          <div class="rounded-[12px] p-4 mb-5 text-center" style="background: linear-gradient(135deg, rgba(0,217,126,0.08), rgba(91,196,137,0.05)); border: 1px solid rgba(0,217,126,0.20);">
+            <div class="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#9590A8] mb-2">Net Revenue Retention</div>
+            <div class="text-[52px] font-bold text-[#00D97E] leading-none tracking-[-0.04em]">126<span class="text-[28px]">%</span></div>
+            <div class="text-[12px] text-[#9590A8] mt-2">Industry avg: 104% — you're beating it</div>
+          </div>
+          <!-- Upsell / Referral breakdown -->
+          <div class="space-y-3">
+            <div class="surface-2 rounded-[10px] px-4 py-3">
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-arrow-up-right-dots text-[#5BC489] text-[11px]"></i>
+                  <span class="text-[12px] font-medium">Upsell Revenue</span>
+                </div>
+                <span class="text-[12px] font-bold text-[#5BC489]">$48,200</span>
+              </div>
+              <div class="text-[10px] text-[#9590A8]">147 accounts upgraded this quarter</div>
+            </div>
+            <div class="surface-2 rounded-[10px] px-4 py-3">
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-people-arrows text-[#00D97E] text-[11px]"></i>
+                  <span class="text-[12px] font-medium">Referral Revenue</span>
+                </div>
+                <span class="text-[12px] font-bold text-[#00D97E]">$31,800</span>
+              </div>
+              <div class="text-[10px] text-[#9590A8]">89 referred customers this quarter</div>
+            </div>
+            <div class="surface-2 rounded-[10px] px-4 py-3">
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-layer-group text-[#6BA6FF] text-[11px]"></i>
+                  <span class="text-[12px] font-medium">Cross-sell Revenue</span>
+                </div>
+                <span class="text-[12px] font-bold text-[#6BA6FF]">$22,500</span>
+              </div>
+              <div class="text-[10px] text-[#9590A8]">64 accounts expanded</div>
+            </div>
+          </div>
+        </div>
+        <!-- Right: content -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: rgba(91,196,137,0.12); border: 1px solid rgba(91,196,137,0.25);">
+              <i class="fa-solid fa-arrow-trend-up text-[#5BC489]"></i>
+            </div>
+            <div class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#5BC489]">04 — Expand</div>
+          </div>
+          <h2 class="text-[40px] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
+            Grow revenue from
+            <span class="text-[#5BC489]"> existing customers.</span>
+          </h2>
+          <p class="text-[16px] text-[#9590A8] leading-[1.7] mb-8">
+            The most cost-efficient revenue is already in your base. We design the upsell sequences, cross-sell automations, and referral programs that unlock compounding NRR.
+          </p>
+          <div class="grid grid-cols-2 gap-3 mb-8">
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-arrow-up-right-dots text-[#5BC489] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Upsell Automation</div>
+                <div class="text-[11px] text-[#9590A8]">AI-timed upgrade prompts</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-people-arrows text-[#5BC489] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Referral Programs</div>
+                <div class="text-[11px] text-[#9590A8]">Incentive design + tracking</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-layer-group text-[#5BC489] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Cross-sell Journeys</div>
+                <div class="text-[11px] text-[#9590A8]">Adjacent product discovery</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-trophy text-[#5BC489] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">VIP Programs</div>
+                <div class="text-[11px] text-[#9590A8]">High-value customer tiers</div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
+            <i class="fa-solid fa-calendar-check text-[12px]"></i>
+            Schedule Free Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FUNCTION 5: ANALYZE & OPTIMIZE ==================== -->
+  <section data-design-id="analyze-section-i9j0k1" class="py-28 mesh-bg">
+    <div class="max-w-[1240px] mx-auto px-8">
+      <div class="grid grid-cols-2 gap-20 items-center">
+        <!-- Left: content -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: rgba(172,106,255,0.12); border: 1px solid rgba(172,106,255,0.25);">
+              <i class="fa-solid fa-flask text-[#AC6AFF]"></i>
+            </div>
+            <div class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#AC6AFF]">05 — Analyze &amp; Optimize</div>
+          </div>
+          <h2 class="text-[40px] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
+            The intelligence layer that
+            <span class="text-[#AC6AFF]"> compounds everything.</span>
+          </h2>
+          <p class="text-[16px] text-[#9590A8] leading-[1.7] mb-8">
+            Every channel, every experiment, every decision — measured and connected. Our analytics layer feeds insights back across all five functions so the whole system improves over time.
+          </p>
+          <div class="grid grid-cols-2 gap-3 mb-8">
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-vials text-[#AC6AFF] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Experimentation</div>
+                <div class="text-[11px] text-[#9590A8]">A/B testing velocity engine</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-link text-[#AC6AFF] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Attribution</div>
+                <div class="text-[11px] text-[#9590A8]">Multi-touch, cross-channel</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-chart-line text-[#AC6AFF] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Growth Analytics</div>
+                <div class="text-[11px] text-[#9590A8]">CAC, LTV, payback period</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 surface-2 rounded-[10px] px-4 py-3">
+              <i class="fa-solid fa-lightbulb text-[#AC6AFF] text-[13px] mt-0.5"></i>
+              <div>
+                <div class="text-[13px] font-semibold mb-0.5">Insight Reports</div>
+                <div class="text-[11px] text-[#9590A8]">Weekly AI-generated briefs</div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="cta-btn text-[14px] px-6 py-3.5 rounded-[10px] inline-flex items-center gap-2">
+            <i class="fa-solid fa-calendar-check text-[12px]"></i>
+            Schedule Free Consultation
+          </a>
+        </div>
+        <!-- Right: experiments dashboard -->
+        <div class="surface rounded-[20px] p-6" style="box-shadow: 0 0 0 1px rgba(172,106,255,0.15), 0 20px 60px rgba(0,0,0,0.5);">
+          <div class="flex items-center justify-between mb-5">
+            <div class="text-[14px] font-semibold">Experiment Tracker</div>
+            <div class="text-[11px] px-2.5 py-1 rounded-full font-medium" style="background: rgba(172,106,255,0.12); color: #AC6AFF; border: 1px solid rgba(172,106,255,0.25);">14 running</div>
+          </div>
+          <div class="space-y-3 mb-5">
+            <div class="surface-2 rounded-[10px] px-4 py-3">
+              <div class="flex items-start justify-between mb-1.5">
+                <div>
+                  <div class="text-[12px] font-semibold">Hero CTA copy variant</div>
+                  <div class="text-[10px] text-[#9590A8]">Conversion — Landing page</div>
+                </div>
+                <div class="px-2 py-0.5 rounded-full text-[9px] font-semibold" style="background: rgba(0,217,126,0.12); color: #00D97E;">Winner ↑ +18%</div>
+              </div>
+              <div class="flex gap-2">
+                <div class="flex-1">
+                  <div class="text-[9px] text-[#9590A8] mb-1">Control: 3.1%</div>
+                  <div class="progress-track"><div style="width: 31%; height: 5px; background: rgba(255,255,255,0.25); border-radius: 9999px;"></div></div>
+                </div>
+                <div class="flex-1">
+                  <div class="text-[9px] text-[#00D97E] mb-1">Variant: 4.2%</div>
+                  <div class="progress-track"><div style="width: 42%; height: 5px; background: #00D97E; border-radius: 9999px;"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="surface-2 rounded-[10px] px-4 py-3">
+              <div class="flex items-start justify-between mb-1.5">
+                <div>
+                  <div class="text-[12px] font-semibold">Onboarding email sequence</div>
+                  <div class="text-[10px] text-[#9590A8]">Retention — Email flow</div>
+                </div>
+                <div class="px-2 py-0.5 rounded-full text-[9px] font-semibold" style="background: rgba(255,200,97,0.12); color: #FFC861;">Running 68% CI</div>
+              </div>
+              <div class="flex gap-2">
+                <div class="flex-1">
+                  <div class="text-[9px] text-[#9590A8] mb-1">Control: 41%</div>
+                  <div class="progress-track"><div style="width: 41%; height: 5px; background: rgba(255,255,255,0.25); border-radius: 9999px;"></div></div>
+                </div>
+                <div class="flex-1">
+                  <div class="text-[9px] text-[#FFC861] mb-1">Variant: 47%</div>
+                  <div class="progress-track"><div style="width: 47%; height: 5px; background: #FFC861; border-radius: 9999px;"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="surface-2 rounded-[10px] px-4 py-3">
+              <div class="flex items-start justify-between mb-1.5">
+                <div>
+                  <div class="text-[12px] font-semibold">Pricing page layout</div>
+                  <div class="text-[10px] text-[#9590A8]">Conversion — Pricing</div>
+                </div>
+                <div class="px-2 py-0.5 rounded-full text-[9px] font-semibold" style="background: rgba(0,217,126,0.12); color: #00D97E;">Winner ↑ +23%</div>
+              </div>
+              <div class="flex gap-2">
+                <div class="flex-1">
+                  <div class="text-[9px] text-[#9590A8] mb-1">Control: 5.8%</div>
+                  <div class="progress-track"><div style="width: 28%; height: 5px; background: rgba(255,255,255,0.25); border-radius: 9999px;"></div></div>
+                </div>
+                <div class="flex-1">
+                  <div class="text-[9px] text-[#00D97E] mb-1">Variant: 7.1%</div>
+                  <div class="progress-track"><div style="width: 36%; height: 5px; background: #00D97E; border-radius: 9999px;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div class="surface-2 rounded-[10px] p-3 text-center">
+              <div class="text-[18px] font-bold text-[#00D97E]">47</div>
+              <div class="text-[9px] text-[#9590A8]">Tests won YTD</div>
+            </div>
+            <div class="surface-2 rounded-[10px] p-3 text-center">
+              <div class="text-[18px] font-bold">6.2</div>
+              <div class="text-[9px] text-[#9590A8]">Avg per month</div>
+            </div>
+            <div class="surface-2 rounded-[10px] p-3 text-center">
+              <div class="text-[18px] font-bold text-[#AC6AFF]">+31%</div>
+              <div class="text-[9px] text-[#9590A8]">Compound lift</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section data-design-id="how-it-works-j0k1l2" class="py-28 border-t border-white/8" style="background: #0E0D1A;">
+    <div class="max-w-[1240px] mx-auto px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full tag-dim text-[11px] font-semibold uppercase tracking-[0.06em] mb-6">
+          <i class="fa-solid fa-play text-[10px]"></i>
+          How It Works
+        </div>
+        <h2 class="text-[48px] font-bold tracking-[-0.03em] leading-[1.1] mb-5">
+          From consultation to
+          <span class="text-[#00D97E]"> compounding growth.</span>
+        </h2>
+        <p class="text-[17px] text-[#9590A8] max-w-[500px] mx-auto leading-[1.6] font-light">
+          We move fast. Most clients are generating leads and running experiments within 30 days.
+        </p>
+      </div>
+      <!-- Steps -->
+      <div class="grid grid-cols-4 gap-6">
+        <article data-design-id="step-card-1-k1l2m3" class="surface rounded-[16px] p-6">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-[#00D97E] font-bold text-[16px]" style="background: rgba(0,217,126,0.12); border: 1px solid rgba(0,217,126,0.25);">01</div>
+            <div class="h-px flex-1" style="background: linear-gradient(90deg, rgba(0,217,126,0.4), transparent);"></div>
+          </div>
+          <h3 class="text-[16px] font-bold mb-2">Free Consultation</h3>
+          <p class="text-[13px] text-[#9590A8] leading-[1.7]">We audit your current growth infrastructure and identify the highest-impact gaps across all five functions.</p>
+          <div class="mt-4 text-[11px] text-[#5A5567]"><i class="fa-solid fa-clock mr-1"></i>Week 0</div>
+        </article>
+        <article data-design-id="step-card-2-l2m3n4" class="surface rounded-[16px] p-6">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-[#6BA6FF] font-bold text-[16px]" style="background: rgba(107,166,255,0.12); border: 1px solid rgba(107,166,255,0.25);">02</div>
+            <div class="h-px flex-1" style="background: linear-gradient(90deg, rgba(107,166,255,0.4), transparent);"></div>
+          </div>
+          <h3 class="text-[16px] font-bold mb-2">Growth Blueprint</h3>
+          <p class="text-[13px] text-[#9590A8] leading-[1.7]">Your custom growth strategy — prioritized by ROI, sequenced for speed, with clear ownership and KPIs for every function.</p>
+          <div class="mt-4 text-[11px] text-[#5A5567]"><i class="fa-solid fa-clock mr-1"></i>Week 1–2</div>
+        </article>
+        <article data-design-id="step-card-3-m3n4o5" class="surface rounded-[16px] p-6">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-[#FFC861] font-bold text-[16px]" style="background: rgba(255,200,97,0.12); border: 1px solid rgba(255,200,97,0.25);">03</div>
+            <div class="h-px flex-1" style="background: linear-gradient(90deg, rgba(255,200,97,0.4), transparent);"></div>
+          </div>
+          <h3 class="text-[16px] font-bold mb-2">System Launch</h3>
+          <p class="text-[13px] text-[#9590A8] leading-[1.7]">We stand up all the tools, automations, and campaigns. Your Head of Growth steers; we execute across every function.</p>
+          <div class="mt-4 text-[11px] text-[#5A5567]"><i class="fa-solid fa-clock mr-1"></i>Weeks 3–6</div>
+        </article>
+        <article data-design-id="step-card-4-n4o5p6" class="surface rounded-[16px] p-6">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-[#AC6AFF] font-bold text-[16px]" style="background: rgba(172,106,255,0.12); border: 1px solid rgba(172,106,255,0.25);">04</div>
+          </div>
+          <h3 class="text-[16px] font-bold mb-2">Compound &amp; Scale</h3>
+          <p class="text-[13px] text-[#9590A8] leading-[1.7]">Continuous optimization loops. Every experiment feeds the next. The system gets smarter and more valuable over time.</p>
+          <div class="mt-4 text-[11px] text-[#5A5567]"><i class="fa-solid fa-clock mr-1"></i>Month 2+</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS / SOCIAL PROOF -->
+  <section data-design-id="testimonials-section-o5p6q7" class="py-28 mesh-bg">
+    <div class="max-w-[1240px] mx-auto px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full tag-dim text-[11px] font-semibold uppercase tracking-[0.06em] mb-6">
+          <i class="fa-solid fa-quote-left text-[10px]"></i>
+          Client Results
+        </div>
+        <h2 class="text-[48px] font-bold tracking-[-0.03em] leading-[1.1]">
+          Heads of Growth and founders
+          <span class="text-[#00D97E]"> trust the system.</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-3 gap-6">
+        <article data-design-id="testimonial-1-p6q7r8" class="surface rounded-[16px] p-7">
+          <div class="flex gap-0.5 mb-5">
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+          </div>
+          <p class="text-[15px] text-[#E2DFEC] leading-[1.7] mb-6 italic">&ldquo;Body of Growth gave us the full operational layer we were missing. Our Head of Growth finally has a team that can execute at the same speed he thinks. Revenue up 2.1x in 7 months.&rdquo;</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[13px]" style="background: linear-gradient(135deg, #00D97E, #00AA62);">JM</div>
+            <div>
+              <div class="text-[13px] font-semibold">James Mitchell</div>
+              <div class="text-[11px] text-[#9590A8]">CEO, Verge Commerce</div>
+            </div>
+            <div class="ml-auto text-right">
+              <div class="text-[18px] font-bold text-[#00D97E]">2.1x</div>
+              <div class="text-[10px] text-[#9590A8]">Revenue growth</div>
+            </div>
+          </div>
+        </article>
+        <article data-design-id="testimonial-2-q7r8s9" class="surface rounded-[16px] p-7" style="border-color: rgba(0,217,126,0.25); box-shadow: 0 0 0 1px rgba(0,217,126,0.20), 0 12px 40px rgba(0,217,126,0.08);">
+          <div class="flex gap-0.5 mb-5">
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+          </div>
+          <p class="text-[15px] text-[#E2DFEC] leading-[1.7] mb-6 italic">&ldquo;We tried hiring 4 different agencies for different channels. It was a coordination nightmare. Body of Growth runs it all as one system — and it shows in our attribution data. CAC dropped 38%.&rdquo;</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[13px]" style="background: linear-gradient(135deg, #6BA6FF, #4580D8);">SR</div>
+            <div>
+              <div class="text-[13px] font-semibold">Sarah Reinholt</div>
+              <div class="text-[11px] text-[#9590A8]">Head of Growth, Lumina SaaS</div>
+            </div>
+            <div class="ml-auto text-right">
+              <div class="text-[18px] font-bold text-[#00D97E]">-38%</div>
+              <div class="text-[10px] text-[#9590A8]">CAC reduction</div>
+            </div>
+          </div>
+        </article>
+        <article data-design-id="testimonial-3-r8s9t0" class="surface rounded-[16px] p-7">
+          <div class="flex gap-0.5 mb-5">
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+            <i class="fa-solid fa-star text-[#FFC861] text-[11px]"></i>
+          </div>
+          <p class="text-[15px] text-[#E2DFEC] leading-[1.7] mb-6 italic">&ldquo;As a founder without a dedicated growth hire, Body of Growth became my entire growth department. The AI systems run 24/7 and the team proactively brings ideas. NRR is now 131%.&rdquo;</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[13px]" style="background: linear-gradient(135deg, #FFC861, #D89A30);">KL</div>
+            <div>
+              <div class="text-[13px] font-semibold">Kai Landers</div>
+              <div class="text-[11px] text-[#9590A8]">Founder &amp; CEO, Arcflow</div>
+            </div>
+            <div class="ml-auto text-right">
+              <div class="text-[18px] font-bold text-[#00D97E]">131%</div>
+              <div class="text-[10px] text-[#9590A8]">NRR achieved</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section data-design-id="audience-section-s9t0u1" class="py-24" style="background: #0E0D1A; border-top: 1px solid rgba(255,255,255,0.08);">
+    <div class="max-w-[1240px] mx-auto px-8">
+      <div class="text-center mb-14">
+        <h2 class="text-[40px] font-bold tracking-[-0.03em] leading-[1.1] mb-4">Built for the people driving growth.</h2>
+        <p class="text-[16px] text-[#9590A8] max-w-[480px] mx-auto">Two types of leaders find Body of Growth indispensable.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-8">
+        <!-- Head of Growth card -->
+        <div class="surface rounded-[20px] p-8">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(0,217,126,0.12); border: 1px solid rgba(0,217,126,0.25);">
+              <i class="fa-solid fa-brain text-[#00D97E] text-[20px]"></i>
+            </div>
+            <div>
+              <div class="text-[18px] font-bold">Head of Growth</div>
+              <div class="text-[12px] text-[#9590A8]">VP Growth, CGO, Growth Lead</div>
+            </div>
+          </div>
+          <p class="text-[15px] text-[#9590A8] leading-[1.7] mb-6">You have the strategy, the vision, and the roadmap. What you lack is the execution bandwidth. Body of Growth gives you a full operations team — so you stop managing tools and start driving results.</p>
+          <div class="space-y-2">
+            <div class="flex items-center gap-2.5 text-[13px] text-[#E2DFEC]">
+              <i class="fa-solid fa-check text-[#00D97E] text-[11px]"></i>
+              Stop being the bottleneck on execution
+            </div>
+            <div class="flex items-center gap-2.5 text-[13px] text-[#E2DFEC]">
+              <i class="fa-solid fa-check text-[#00D97E] text-[11px]"></i>
+              Ship 5x more experiments per quarter
+            </div>
+            <div class="flex items-center gap-2.5 text-[13px] text-[#E2DFEC]">
+              <i class="fa-solid fa-check text-[#00D97E] text-[11px]"></i>
+              Report on unified, attribution-accurate metrics
+            </div>
+          </div>
+        </div>
+        <!-- Founder/CEO card -->
+        <div class="surface rounded-[20px] p-8">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(172,106,255,0.12); border: 1px solid rgba(172,106,255,0.25);">
+              <i class="fa-solid fa-rocket text-[#AC6AFF] text-[20px]"></i>
+            </div>
+            <div>
+              <div class="text-[18px] font-bold">Founder &amp; CEO</div>
+              <div class="text-[12px] text-[#9590A8]">Scaling startup or growth-stage company</div>
+            </div>
+          </div>
+          <p class="text-[15px] text-[#9590A8] leading-[1.7] mb-6">You're not ready to build a full growth team, but you need to grow. Body of Growth acts as your entire growth department — with AI systems that run 24/7 and a team that brings you insights, not just reports.</p>
+          <div class="space-y-2">
+            <div class="flex items-center gap-2.5 text-[13px] text-[#E2DFEC]">
+              <i class="fa-solid fa-check text-[#AC6AFF] text-[11px]"></i>
+              Full growth function without the hiring cost
+            </div>
+            <div class="flex items-center gap-2.5 text-[13px] text-[#E2DFEC]">
+              <i class="fa-solid fa-check text-[#AC6AFF] text-[11px]"></i>
+              Proven AI systems, not agency guesswork
+            </div>
+            <div class="flex items-center gap-2.5 text-[13px] text-[#E2DFEC]">
+              <i class="fa-solid fa-check text-[#AC6AFF] text-[11px]"></i>
+              Scale up or down with your growth stage
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA SECTION -->
+  <section data-design-id="final-cta-section-t0u1v2" class="py-28 relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(0,217,126,0.09) 0%, transparent 70%);"></div>
+    <div class="relative z-10 max-w-[800px] mx-auto px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full tag-green text-[11px] font-semibold uppercase tracking-[0.06em] mb-8">
+        <div class="dot-green"></div>
+        Limited spots available — Q3 2026
+      </div>
+      <h2 class="text-[60px] font-bold tracking-[-0.04em] leading-[1.0] mb-6">
+        Ready to run growth
+        <span class="text-[#00D97E]"> as a system?</span>
+      </h2>
+      <p class="text-[18px] text-[#9590A8] leading-[1.6] mb-10 font-light">
+        Book a free 45-minute strategy session. We'll audit your current growth infrastructure and show you exactly where the gaps are — no pitch, no fluff.
+      </p>
+      <div class="flex items-center justify-center gap-4 mb-10">
+        <a href="#" class="cta-btn text-[16px] px-8 py-4.5 rounded-[12px] inline-flex items-center gap-3 green-glow" style="padding-top: 18px; padding-bottom: 18px;">
+          <i class="fa-solid fa-calendar-check"></i>
+          Schedule Free Consultation
+          <i class="fa-solid fa-arrow-right text-[13px]"></i>
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-8">
+        <div class="flex items-center gap-2 text-[13px] text-[#9590A8]">
+          <i class="fa-solid fa-check-circle text-[#00D97E] text-[12px]"></i>
+          No commitment required
+        </div>
+        <div class="flex items-center gap-2 text-[13px] text-[#9590A8]">
+          <i class="fa-solid fa-check-circle text-[#00D97E] text-[12px]"></i>
+          45-minute strategy session
+        </div>
+        <div class="flex items-center gap-2 text-[13px] text-[#9590A8]">
+          <i class="fa-solid fa-check-circle text-[#00D97E] text-[12px]"></i>
+          Free growth audit included
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer data-design-id="footer-main-u1v2w3" class="border-t border-white/8" style="background: #080714;">
+    <div class="max-w-[1240px] mx-auto px-8 py-16">
+      <div class="grid grid-cols-5 gap-10 mb-14">
+        <!-- Brand column -->
+        <div class="col-span-2">
+          <a href="#" class="flex items-center gap-3 mb-5">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: rgba(0,217,126,0.15); border: 1px solid rgba(0,217,126,0.35);">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <circle cx="9" cy="9" r="3" fill="#00D97E"/>
+                <path d="M9 2 C9 2 12 4 14 7 C16 10 15 14 12 15 C10 16 8 16 6 15 C3 14 2 10 4 7 C6 4 9 2 9 2Z" stroke="#00D97E" stroke-width="1.2" fill="none" opacity="0.5"/>
+              </svg>
+            </div>
+            <span class="text-white font-bold text-[17px] tracking-[-0.02em]">Body of Growth</span>
+          </a>
+          <p class="text-[14px] text-[#9590A8] leading-[1.7] max-w-[280px] mb-6">The AI-powered execution system that turns a Head of Growth into a fully operational growth engine.</p>
+          <div class="flex items-center gap-3">
+            <a href="#" class="w-8 h-8 rounded-lg flex items-center justify-center surface hover:border-white/25 transition-colors">
+              <i class="fa-brands fa-linkedin text-[#9590A8] text-[12px]"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-lg flex items-center justify-center surface hover:border-white/25 transition-colors">
+              <i class="fa-brands fa-x-twitter text-[#9590A8] text-[12px]"></i>
+            </a>
+          </div>
+        </div>
+        <!-- Links columns -->
+        <div>
+          <div class="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5A5567] mb-4">Functions</div>
+          <div class="space-y-2.5">
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Acquire</a>
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Convert</a>
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Retain</a>
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Expand</a>
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Analyze &amp; Optimize</a>
+          </div>
+        </div>
+        <div>
+          <div class="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5A5567] mb-4">Company</div>
+          <div class="space-y-2.5">
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">About</a>
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Case Studies</a>
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Blog</a>
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Careers</a>
+          </div>
+        </div>
+        <div>
+          <div class="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5A5567] mb-4">Get Started</div>
+          <div class="space-y-2.5">
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Schedule Consultation</a>
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Growth Audit</a>
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Pricing</a>
+            <a href="#" class="block text-[13px] text-[#9590A8] hover:text-white transition-colors">Contact</a>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom bar -->
+      <div class="border-t border-white/8 pt-8 flex items-center justify-between">
+        <div class="text-[12px] text-[#5A5567]">© 2026 Body of Growth. All rights reserved.</div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="text-[12px] text-[#5A5567] hover:text-[#9590A8] transition-colors">Privacy Policy</a>
+          <a href="#" class="text-[12px] text-[#5A5567] hover:text-[#9590A8] transition-colors">Terms of Service</a>
+          <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full tag-green text-[10px] font-semibold">
+            <div class="dot-green"></div>
+            All systems operational
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

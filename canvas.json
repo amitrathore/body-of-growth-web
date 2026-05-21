@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "screens": [
+    {"screen_id": "landing", "frame_kind": "desktop", "label": "Landing Page"}
+  ]
+}
