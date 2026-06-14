@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
   <script>
     (function () {
       var savedTheme = localStorage.getItem('bodyOfGrowthTheme');
-      document.documentElement.dataset.theme = savedTheme || 'dark';
+      document.documentElement.dataset.theme = savedTheme || 'light';
     })();
   </script>
   <style>
@@ -1368,10 +1368,10 @@
         <div class="footer-links flex items-center gap-6">
           <a href="#contact" class="text-[12px] text-[#5A5567] hover:text-[#9590A8] transition-colors">Privacy Policy</a>
           <a href="#contact" class="text-[12px] text-[#5A5567] hover:text-[#9590A8] transition-colors">Terms of Service</a>
-          <button type="button" class="theme-toggle h-8 px-2.5 rounded-full inline-flex items-center gap-2 text-[11px] font-medium" aria-label="Switch to light theme" aria-pressed="false">
+          <button type="button" class="theme-toggle h-8 px-2.5 rounded-full inline-flex items-center gap-2 text-[11px] font-medium" aria-label="Switch to dark theme" aria-pressed="true">
             <i class="fa-solid fa-moon text-[10px]" aria-hidden="true"></i>
             <i class="fa-solid fa-sun text-[10px]" aria-hidden="true"></i>
-            <span data-theme-label>Dark</span>
+            <span data-theme-label>Light</span>
           </button>
           <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full tag-green text-[10px] font-semibold">
             <div class="dot-green"></div>
