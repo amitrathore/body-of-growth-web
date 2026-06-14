@@ -10,8 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
     (function () {
-      var savedTheme = localStorage.getItem('bodyOfGrowthTheme');
-      document.documentElement.dataset.theme = savedTheme || 'light';
+      var themeKey = 'bodyOfGrowthThemeV2';
+      var savedTheme = localStorage.getItem(themeKey);
+      if (!savedTheme) localStorage.removeItem('bodyOfGrowthTheme');
+      document.documentElement.dataset.theme = savedTheme === 'dark' ? 'dark' : 'light';
     })();
   </script>
   <style>
@@ -1387,12 +1389,13 @@
       var root = document.documentElement;
       var toggle = document.querySelector('.theme-toggle');
       var label = document.querySelector('[data-theme-label]');
+      var themeKey = 'bodyOfGrowthThemeV2';
       if (!toggle || !label) return;
 
       function applyTheme(theme) {
         var isLight = theme === 'light';
         root.dataset.theme = theme;
-        localStorage.setItem('bodyOfGrowthTheme', theme);
+        localStorage.setItem(themeKey, theme);
         toggle.setAttribute('aria-pressed', String(isLight));
         toggle.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
         label.textContent = isLight ? 'Light' : 'Dark';
