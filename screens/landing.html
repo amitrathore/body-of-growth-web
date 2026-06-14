@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,10 +8,60 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      var savedTheme = localStorage.getItem('bodyOfGrowthTheme');
+      document.documentElement.dataset.theme = savedTheme || 'dark';
+    })();
+  </script>
   <style>
-    html { scroll-behavior: smooth; background: #0A0915; }
+    :root {
+      --bg: #0A0915;
+      --bg-alt: #0E0D1A;
+      --footer-bg: #080714;
+      --surface: #15131D;
+      --surface-2: #1B1A23;
+      --text: #FFFFFF;
+      --text-soft: #E2DFEC;
+      --muted: #9590A8;
+      --muted-2: #5A5567;
+      --border: rgba(255,255,255,0.10);
+      --border-soft: rgba(255,255,255,0.08);
+      --track: rgba(255,255,255,0.08);
+      --nav-bg: rgba(10,9,21,0.85);
+      --hero-tint-a: rgba(10,9,21,0.94);
+      --hero-tint-b: rgba(10,9,21,0.80);
+      --hero-tint-c: rgba(10,9,21,0.60);
+      --hero-fade-a: rgba(10,9,21,0.30);
+      --hero-fade-b: rgba(10,9,21,0.68);
+      --shadow-heavy: rgba(0,0,0,0.55);
+    }
+    :root[data-theme="light"] {
+      --bg: #F7F8F4;
+      --bg-alt: #EFF2E9;
+      --footer-bg: #E8EDE3;
+      --surface: #FFFFFF;
+      --surface-2: #F1F4EC;
+      --text: #121614;
+      --text-soft: #2C352F;
+      --muted: #667069;
+      --muted-2: #879188;
+      --border: rgba(20,32,24,0.12);
+      --border-soft: rgba(20,32,24,0.09);
+      --track: rgba(20,32,24,0.10);
+      --nav-bg: rgba(247,248,244,0.86);
+      --hero-tint-a: rgba(247,248,244,0.95);
+      --hero-tint-b: rgba(247,248,244,0.82);
+      --hero-tint-c: rgba(247,248,244,0.62);
+      --hero-fade-a: rgba(247,248,244,0.22);
+      --hero-fade-b: rgba(247,248,244,0.72);
+      --shadow-heavy: rgba(55,70,62,0.18);
+    }
+    html { scroll-behavior: smooth; background: var(--bg); color-scheme: dark; }
+    :root[data-theme="light"] { color-scheme: light; }
     * { font-family: 'Sora', sans-serif; box-sizing: border-box; }
-    ::selection { background: rgba(0,217,126,0.28); color: #fff; }
+    body { background: var(--bg) !important; color: var(--text) !important; transition: background 0.25s ease, color 0.25s ease; }
+    ::selection { background: rgba(0,217,126,0.28); color: var(--text); }
     .green-glow { box-shadow: 0 0 0 1px rgba(0,217,126,0.35), 0 8px 32px rgba(0,217,126,0.25); }
     .green-glow-sm { box-shadow: 0 0 0 1px rgba(0,217,126,0.20), 0 4px 16px rgba(0,217,126,0.15); }
     .card-glow { transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; }
@@ -19,27 +69,27 @@
     .green-text-glow { text-shadow: 0 0 40px rgba(0,217,126,0.5); }
     .hero-bg {
       background-image:
-        linear-gradient(90deg, rgba(10,9,21,0.94) 0%, rgba(10,9,21,0.80) 52%, rgba(10,9,21,0.60) 100%),
+        linear-gradient(90deg, var(--hero-tint-a) 0%, var(--hero-tint-b) 52%, var(--hero-tint-c) 100%),
         url('https://t3.ftcdn.net/jpg/06/03/18/70/360_F_603187024_voRL50Ad72G40uLTamGwfzl81srdqMhA.jpg');
       background-size: cover;
       background-position: center top;
     }
-    .gradient-overlay { background: linear-gradient(180deg, rgba(10,9,21,0.30) 0%, rgba(10,9,21,0.68) 68%, #0A0915 100%); }
+    .gradient-overlay { background: linear-gradient(180deg, var(--hero-fade-a) 0%, var(--hero-fade-b) 68%, var(--bg) 100%); }
     .section-divider { background: linear-gradient(90deg, transparent, rgba(0,217,126,0.4), transparent); height: 1px; }
     .function-num { font-variant-numeric: tabular-nums; }
     .bar-fill { transition: width 0.3s ease; }
     .tag-green { background: rgba(0,217,126,0.12); color: #00D97E; border: 1px solid rgba(0,217,126,0.25); }
-    .tag-dim { background: rgba(255,255,255,0.06); color: #9590A8; border: 1px solid rgba(255,255,255,0.10); }
-    .surface { background: #15131D; border: 1px solid rgba(255,255,255,0.10); }
-    .surface-2 { background: #1B1A23; border: 1px solid rgba(255,255,255,0.08); }
+    .tag-dim { background: color-mix(in srgb, var(--surface-2) 72%, transparent); color: var(--muted); border: 1px solid var(--border); }
+    .surface { background: var(--surface); border: 1px solid var(--border); }
+    .surface-2 { background: var(--surface-2); border: 1px solid var(--border-soft); }
     .cta-btn { background: #00D97E; color: #0A0915; font-weight: 700; transition: background 0.2s, transform 0.15s; }
     .cta-btn:hover { background: #00F08A; transform: translateY(-1px); }
-    .ghost-btn { border: 1px solid rgba(255,255,255,0.18); color: #E2DFEC; transition: border-color 0.2s, background 0.2s; }
+    .ghost-btn { border: 1px solid color-mix(in srgb, var(--text) 18%, transparent); color: var(--text-soft); transition: border-color 0.2s, background 0.2s; }
     .ghost-btn:hover { border-color: rgba(0,217,126,0.45); background: rgba(0,217,126,0.06); color: #00D97E; }
     .dot-green { width: 8px; height: 8px; background: #00D97E; border-radius: 50%; box-shadow: 0 0 6px rgba(0,217,126,0.7); }
     .dot-amber { width: 8px; height: 8px; background: #FFC861; border-radius: 50%; }
     .dot-red { width: 8px; height: 8px; background: #FF6B7E; border-radius: 50%; }
-    .progress-track { background: rgba(255,255,255,0.08); border-radius: 9999px; height: 6px; }
+    .progress-track { background: var(--track); border-radius: 9999px; height: 6px; }
     .progress-fill-green { background: #00D97E; border-radius: 9999px; height: 6px; }
     .progress-fill-blue { background: #6BA6FF; border-radius: 9999px; height: 6px; }
     .progress-fill-amber { background: #FFC861; border-radius: 9999px; height: 6px; }
@@ -56,9 +106,37 @@
     .section-wrap { max-width: 1240px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
     .hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) 390px; align-items: center; gap: 3.5rem; }
     .hero-preview { position: relative !important; right: auto !important; top: auto !important; transform: none !important; width: 100% !important; }
+    .theme-toggle {
+      color: var(--muted);
+      background: color-mix(in srgb, var(--surface) 72%, transparent);
+      border: 1px solid var(--border-soft);
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .theme-toggle:hover { color: var(--text); border-color: rgba(0,217,126,0.30); background: rgba(0,217,126,0.06); }
+    .theme-toggle:focus-visible { outline: 2px solid rgba(0,217,126,0.65); outline-offset: 3px; }
+    .theme-toggle .fa-sun { display: none; }
+    :root[data-theme="light"] .theme-toggle .fa-sun { display: inline-block; }
+    :root[data-theme="light"] .theme-toggle .fa-moon { display: none; }
+
+    :root[data-theme="light"] .text-white,
+    :root[data-theme="light"] [class*="text-white"] { color: var(--text) !important; }
+    :root[data-theme="light"] [class*="text-[#E2DFEC]"] { color: var(--text-soft) !important; }
+    :root[data-theme="light"] [class*="text-[#9590A8]"] { color: var(--muted) !important; }
+    :root[data-theme="light"] [class*="text-[#5A5567]"] { color: var(--muted-2) !important; }
+    :root[data-theme="light"] [class*="bg-[#0A0915]"] { background-color: var(--bg) !important; }
+    :root[data-theme="light"] [class*="border-white"],
+    :root[data-theme="light"] [class*="divide-white"] { border-color: var(--border-soft) !important; }
+    :root[data-theme="light"] nav[style],
+    :root[data-theme="light"] section[style*="background: #0E0D1A"],
+    :root[data-theme="light"] footer[style*="background: #080714"] { background: var(--bg-alt) !important; border-color: var(--border-soft) !important; }
+    :root[data-theme="light"] nav[style] { background: var(--nav-bg) !important; }
+    :root[data-theme="light"] footer[style*="background: #080714"] { background: var(--footer-bg) !important; }
+    :root[data-theme="light"] .hero-preview .surface,
+    :root[data-theme="light"] .two-col > .surface { box-shadow: 0 18px 54px var(--shadow-heavy) !important; }
+    :root[data-theme="light"] .trust-row [class*="border-[#0A0915]"] { border-color: var(--bg) !important; }
 
     @media (max-width: 1180px) {
-      .desktop-nav-links { display: none; }
+      .desktop-nav-links { display: none !important; }
       .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
       .hero-preview { width: min(100%, 520px) !important; }
       .hero-copy { max-width: 720px; }
@@ -1290,6 +1368,11 @@
         <div class="footer-links flex items-center gap-6">
           <a href="#contact" class="text-[12px] text-[#5A5567] hover:text-[#9590A8] transition-colors">Privacy Policy</a>
           <a href="#contact" class="text-[12px] text-[#5A5567] hover:text-[#9590A8] transition-colors">Terms of Service</a>
+          <button type="button" class="theme-toggle h-8 px-2.5 rounded-full inline-flex items-center gap-2 text-[11px] font-medium" aria-label="Switch to light theme" aria-pressed="false">
+            <i class="fa-solid fa-moon text-[10px]" aria-hidden="true"></i>
+            <i class="fa-solid fa-sun text-[10px]" aria-hidden="true"></i>
+            <span data-theme-label>Dark</span>
+          </button>
           <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full tag-green text-[10px] font-semibold">
             <div class="dot-green"></div>
             All systems operational
@@ -1298,6 +1381,29 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var toggle = document.querySelector('.theme-toggle');
+      var label = document.querySelector('[data-theme-label]');
+      if (!toggle || !label) return;
+
+      function applyTheme(theme) {
+        var isLight = theme === 'light';
+        root.dataset.theme = theme;
+        localStorage.setItem('bodyOfGrowthTheme', theme);
+        toggle.setAttribute('aria-pressed', String(isLight));
+        toggle.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+        label.textContent = isLight ? 'Light' : 'Dark';
+      }
+
+      applyTheme(root.dataset.theme === 'light' ? 'light' : 'dark');
+      toggle.addEventListener('click', function () {
+        applyTheme(root.dataset.theme === 'light' ? 'dark' : 'light');
+      });
+    })();
+  </script>
 
 </body>
 </html>
